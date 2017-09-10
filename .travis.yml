@@ -1,0 +1,23 @@
+language:        c
+
+os:
+  - linux
+
+sudo:            required
+
+services:
+  - docker
+
+env:
+  global:
+    - ENCRYPTION_LABEL: "9fdce5882088"
+    - COMMIT_AUTHOR_EMAIL: "kai@kzhang.org"
+
+python:
+  - "3.5"
+
+before_install:
+  - pip install sphinx==1.5.6 sphinxcontrib-versioning sphinx_rtd_theme;
+
+script:
+  - bash depoly/build.sh;

@@ -1,23 +1,32 @@
-language:        c
+language: haskell
+
+cache:
+  directories:
+    - $HOME/.stack
 
 os:
   - linux
 
-sudo:            required
+ghc:
+  - 8.0.2
 
-services:
-  - docker
-
-env:
-  global:
-    - ENCRYPTION_LABEL: "9fdce5882088"
-    - COMMIT_AUTHOR_EMAIL: "kai@kzhang.org"
-
-python:
-  - "3.5"
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: dev
+  local_dir: _site
+  target_branch: master
 
 before_install:
-  - pip install sphinx==1.5.6 sphinxcontrib-versioning sphinx_rtd_theme;
+  - mkdir -p $HOME/.local/bin;
+  - export PATH="$HOME/.local/bin:${PATH}"
+  - curl -Lk https://www.stackage.org/stack/linux-x86_64 | tar xz --strip-components=1 -C $HOME/.local/bin;
+
+install:
+  - stack build --system-ghc
 
 script:
-  - bash depoly/build.sh;
+  - stack exec --system-ghc site build
+  - touch _site/.nojekyll

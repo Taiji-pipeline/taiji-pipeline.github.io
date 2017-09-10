@@ -7,36 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>$title$</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
 </head>
 
 <body>
 
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">Taiji</span>
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation -->
-                <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">About</a>
-                    <a class="mdl-navigation__link" href="">Install</a>
-                    <a class="mdl-navigation__link" href="">Documentation</a>
-                    <a class="mdl-navigation__link" href="https://github.com/Taiji-pipeline/Taiji">Github</a>
-                </nav>
-            </div>
-        </header>
-
-
-        <main role="main">
-            $body$
-        </main>
-
-        <footer>
-        </footer>
+    <div class="ui fixed inverted menu orange borderless">
+        <a class="item" href="index.html"><span style="font-size:1.5em;font-family:Roboto;">Taiji</span></a>
+        <div class="right menu">
+            <a class="item $if(install)$ active $endif$" href="install.html">Install</a>
+            <a class="item" href="https://taiji-pipeline.github.io/documentation/">Documentation</a>
+            <a class="ui item" href="https://github.com/Taiji-pipeline/Taiji">GITHUB</a>
+        </div>
     </div>
+
+    <main role="main">
+        $body$
+    </main>
+
+    <footer>
+    </footer>
 
 </body>
 

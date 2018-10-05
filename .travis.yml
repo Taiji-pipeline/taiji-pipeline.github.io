@@ -8,7 +8,7 @@ os:
   - linux
 
 ghc:
-  - 8.0.2
+  - 8.4.3
 
 deploy:
   provider: pages

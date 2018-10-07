@@ -4,7 +4,8 @@ import           Hakyll
 import Hakyll.Web.Sass (sassCompilerWith, sassDefConfig, SassOptions(..))
 
 saasOptions = sassDefConfig
-    { sassIncludePaths      = Just ["web/foundation/css"]
+    { sassIncludePaths      = Just [ "third_party/foundation-sites/scss"
+                                   , "third_party/motion-ui/src" ]
     }
 
 --------------------------------------------------------------------------------
@@ -16,19 +17,19 @@ main = hakyll $ do
         route $ gsubRoute "web/" (const "")
         compile copyFileCompiler
 
-    match "web/static/css/*" $ do
+    match "web/static/css/*.css" $ do
         route $ gsubRoute "web/" (const "")
         compile copyFileCompiler
+
+    match "web/static/css/app.scss" $ do
+        route $ composeRoutes (gsubRoute "web/" (const "")) $ setExtension "css"
+        compile $ sassCompilerWith saasOptions
 
     match "web/static/js/*" $ do
         route $ gsubRoute "web/" (const "")
         compile copyFileCompiler
 
-    -- match "web/static/scss/app.scss" $ do
-    --    route $ constRoute "static/css/app.css"
-    --    compile $ sassCompilerWith saasOptions
-
-    match (fromList ["web/pages/install.rst"]) $ do
+    match "web/pages/*.md" $ do
         route $ composeRoutes (gsubRoute "web/pages/" $ const "") $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "web/templates/default.html" defaultContext

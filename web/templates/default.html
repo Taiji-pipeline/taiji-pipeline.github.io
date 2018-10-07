@@ -8,16 +8,17 @@
     <title>$title$</title>
 
     <!-- Foundation CSS -->
-    <link href="static/css/foundation.min.css" rel='stylesheet' type='text/css'>
+    <link href="static/css/app.css" rel='stylesheet' type='text/css'>
+
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
 </head>
 
 
 <body>
     $partial("web/templates/header.html")$
 
-    <main role="main">
-        $body$
-    </main>
+    <div id="main" class="grid-container">$body$</div>
 
     $partial("web/templates/footer.html")$
 

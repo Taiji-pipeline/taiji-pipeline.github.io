@@ -1,13 +1,13 @@
 ---
 title: install
-install: yes
 ---
 
 Installation instruction for command line interface
 ===================================================
 
 The pre-built binary for Linux system can be downloaded
-from [github](https://github.com/Taiji-pipeline/Taiji/releases).
+from [github](https://github.com/Taiji-pipeline/Taiji/releases)
+(For other platforms, you will need to build the program from the source following these [instructions](https://taiji-pipeline.github.io/documentation/install.html).)
 The binary depends on several external libraries. Most of them should have
 already been installed in standard Linux environment, except for igraph C library
 which can be downloaded and installed from [here](http://igraph.org/c/#downloads).

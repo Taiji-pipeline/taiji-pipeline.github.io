@@ -1,7 +1,3 @@
----
-title: install
----
-
 Installation instruction for command line interface
 ===================================================
 

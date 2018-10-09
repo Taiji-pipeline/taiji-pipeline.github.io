@@ -25,6 +25,10 @@ main = hakyll $ do
         route $ composeRoutes (gsubRoute "web/" (const "")) $ setExtension "css"
         compile $ sassCompilerWith saasOptions
 
+    match "third_party/foundation-sites/dist/js/foundation.min.js" $ do
+        route $ constRoute "static/js/foundation.min.js"
+        compile copyFileCompiler
+
     match "web/static/js/*" $ do
         route $ gsubRoute "web/" (const "")
         compile copyFileCompiler

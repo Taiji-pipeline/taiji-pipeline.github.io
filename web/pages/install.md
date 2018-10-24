@@ -18,7 +18,7 @@ Taiji uses serveral other software, listed below:
 
 Mandatory:
 
-- [samtools-v1.3.1](https://github.com/samtools/samtools/releases).
+- [samtools](https://github.com/samtools/samtools/releases).
 - BWA-v0.7.12.
 - [MACS2-v2.1.1.20160309](https://pypi.python.org/pypi/MACS2/2.1.1.20160309).
 - [Picard](https://github.com/broadinstitute/picard/releases/tag/2.6.0).

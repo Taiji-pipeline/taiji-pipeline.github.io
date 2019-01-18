@@ -11,31 +11,24 @@ which can be downloaded and installed from [here](http://igraph.org/c/#downloads
 After downloading the binary, put it in your system's PATH. To verify that the
 installation is successful, type ``taiji --help`` in your command line.
 
-External software
------------------
+Dependent software
+------------------
 
-Taiji uses serveral other software, listed below:
+Taiji may use other software depending on the input data type: 
 
-Mandatory:
+- [samtools](https://github.com/samtools/samtools/releases): Filtering bam files.
+- [BWA](https://github.com/lh3/bwa/releases): Reads alignment.
+- [MACS2](https://pypi.org/project/MACS2/): Peak calling.
+- [STAR](https://github.com/alexdobin/STAR/releases): RNA-seq reads alignment.
+- [RSEM](https://github.com/deweylab/RSEM/releases): RNA-seq quantification.
 
-- [samtools](https://github.com/samtools/samtools/releases).
-- BWA-v0.7.12.
-- [MACS2-v2.1.1.20160309](https://pypi.python.org/pypi/MACS2/2.1.1.20160309).
-- [Picard](https://github.com/broadinstitute/picard/releases/tag/2.6.0).
-- java-v1.8 (required by Picard)
-
-Optional:
-
-- STAR-v2.5.2b (RNA-seq analysis)
-- [RSEM-1.2.31](https://github.com/deweylab/RSEM/releases) (RNA-seq analysis)
-
-Software with older versions might not work.
-
+<!-- 
 Installation instruction for graphical user interface
 =====================================================
 
 After Taiji is successfully installed, download the ``taiji-viz`` binary from
 [here](https://github.com/Taiji-pipeline/Taiji-viz/releases).
+
 
 To use ``taiji-viz``, run ``taiji-viz`` on the command line. Then open
 a web browser and go to "127.0.0.1:8787".
@@ -51,3 +44,5 @@ To do so, follow these steps:
 1. Run ``taiji-viz`` on a remote server.
 2. On the local machine, create a SSH tunnel: ``ssh -L 8787:localhost:8787 username@server``
 3. Open a web browser and go to "127.0.0.1:8787".
+
+-->

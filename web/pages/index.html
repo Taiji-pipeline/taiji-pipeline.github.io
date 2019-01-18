@@ -1,4 +1,4 @@
-<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+<div class="orbit" role="region" aria-label="Favorite Pictures" data-orbit>
   <div class="orbit-wrapper">
 
     <div class="orbit-controls">
@@ -7,8 +7,16 @@
     </div>
 
     <ul class="orbit-container">
-
       <li class="is-active orbit-slide">
+        <figure class="orbit-figure">
+          <img class="orbit-image" src="static/img/SA_2019.png">
+          <figcaption class="orbit-caption">
+            <a target="_blank" href="http://advances.sciencemag.org/content/5/3/eaav3262">Taiji: System-level identification of key transcription factors reveals transcriptional waves in mouse embryonic development.</a>
+          </figcaption>
+        </figure>
+      </li>
+
+      <li class="orbit-slide">
         <figure class="orbit-figure">
           <img class="orbit-image" src="static/img/NI_2017.jpg">
           <figcaption class="orbit-caption">
@@ -32,12 +40,13 @@
   <nav class="orbit-bullets">
     <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
     <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+    <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
   </nav>
 
 </div>
 
 <p>
-The Taiji pipeline is an integrated multi-omics analysis pipeline.
+The Taiji pipeline is an integrative multi-omics analysis pipeline.
 It analyze and use ATAC-seq/DNase-seq, RNA-seq, HiC data to construct
 TF regulatory networks and identify important regulators using the
 personalized PageRank algorithm.
@@ -45,20 +54,12 @@ personalized PageRank algorithm.
 
 <p>
 If you have used <strong>Taiji</strong> in your research, please consider
-cite the following paper(s):
+cite the following paper:
 </p>
 
 <blockquote>
-Kai Zhang, Mengchi Wang, Ying Zhao, Wei Wang.
-Systems-level identification of transcription factors critical
-for mouse embryonic development.
-<em>bioRxiv</em> 167197; doi: https://doi.org/10.1101/167197
-</blockquote>
-
-<blockquote>
-Bingfei Yu, Kai Zhang, J Justin Milner, Clara Toma, Runqiang Chen,
-James P Scott-Browne,	Renata M Pereira, Shane Crotty, John T Chang,
-Matthew E Pipkin, Wei Wang & Ananda W Goldrath. Epigenetic
-landscapes reveal transcription factors that regulate CD8+ T cell
-differentiation. <em>Nature Immunology</em> (2017).
+K. Zhang, M. Wang, Y. Zhao, W. Wang,
+Taiji: System-level identification of key transcription factors reveals
+transcriptional waves in mouse embryonic development.
+<em>Sci. Adv.</em> <strong>5</strong>, eaav3262 (2019).
 </blockquote>

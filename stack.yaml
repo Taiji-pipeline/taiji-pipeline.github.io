@@ -4,4 +4,6 @@ packages:
 - .
 
 extra-deps:
-- hakyll-sass-0.2.3@sha256:be00ce113a00f28794b607fd08866068c47c782b47d7a91ea6ada04b69cb4671
+- hakyll-4.12.5.2
+- hakyll-sass-0.2.4
+- lrucache-1.2.0.1

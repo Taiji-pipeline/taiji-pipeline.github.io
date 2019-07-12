@@ -22,7 +22,9 @@ ATAC-seq	2h	2h	1	ENCFF173INV,ENCFF322IZC	ENCODE
 ATAC-seq	4h	4h	1	ENCFF562JHD,ENCFF943SYH	ENCODE
 ```
 
-Please note that the columns are TAB-separated.
+Please note that the columns are TAB-separated. This dataset is very large and 
+takes a long time to process. Feel free to use other datasets as you want (just
+replace the ENCODE IDs).
 
 Preparing configuration file
 ============================
@@ -44,11 +46,13 @@ Please modify the path to suit your need.
 Running the ATAC-seq analysis
 =============================
 
-Use the following command to run the pipeline:
+Use the following command to run the pipeline using five concurrent threads:
 
 ```
 taiji run --config config.yml -n 5 +RTS -N5
 ```
+
+`-n 5 +RTS -N5` tells the `taiji` to use 5 cores/threads.
 
 OR
 

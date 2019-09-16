@@ -34,14 +34,8 @@ This is how the configuration file looks like:
 ```
 input: "input.tsv"
 output_dir: "output/"
-genome: "/home/kai/tscc/genome/GRCh38/GRCh38.primary_assembly.genome.fa"
-annotation: "/home/kai/tscc/genome/GRCh38/gencode.v30.annotation.gtf"
-genome_index: "/home/kai/tscc/genome/GRCh38/GRCh38.index"
-motif_file: "/home/kai/tscc/motif_databases/cisBP_human.meme"
-bwa_index: "/home/kai/tscc/genome/GRCh38/BWAIndex"
+assembly: "GRCh38"
 ```
-
-Please modify the path to suit your need.
 
 Running the ATAC-seq analysis
 =============================
@@ -57,7 +51,7 @@ taiji run --config config.yml -n 5 +RTS -N5
 OR
 
 ```
-taiji run --config config.yml -n 5 --ip `hostname`
+taiji run --config config.yml -n 5 --cloud
 ```
 
 if you are using job scheduling system.

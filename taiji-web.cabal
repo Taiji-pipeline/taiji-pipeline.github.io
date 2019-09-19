@@ -11,7 +11,7 @@ executable taiji-web
   main-is:          Main.hs
   hs-source-dirs:   compiler
   build-depends:    base == 4.*
-                  , hakyll == 4.12.*
+                  , hakyll == 4.*
                   , hakyll-sass
                   , text
   ghc-options:      -threaded

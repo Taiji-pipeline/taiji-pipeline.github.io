@@ -45,13 +45,51 @@
 
 </div>
 
+<section>
 <p>
-The Taiji pipeline is an integrative multi-omics analysis pipeline.
-It analyze and use ATAC-seq/DNase-seq, RNA-seq, HiC data to construct
-TF regulatory networks and identify important regulators using the
-personalized PageRank algorithm.
+The Taiji software is an integrative multi-omics data analysis framework.
+It can be used as a standalone pipeline to analyze ATAC-seq, RNA-seq, single cell ATAC-seq or Drop-seq data.
+However, the uniqueness and the power of Taiji really lie in its ability to
+integrate diverse datasets and use these information in a clever way to
+construct regulatory network and identify candidate driver genes.
 </p>
+</section>
 
+<section>
+    <div class="grid-y" style="height: 270px;">
+        <div class="cell medium-4 shrink header medium-cell-block-container">
+          <h2>Quick Start</h2>
+          <div class="grid-x grid-padding-x">
+            <div class="cell medium-4"><a download href="static/other/config.yml">File 1: config.yml</a></div>
+            <div class="cell medium-8"><a download href="static/other/input.tsv">File 2: input.tsv</a></div>
+          </div>
+        </div>
+
+        <div class="cell medium-6 medium-cell-block-container">
+          <div class="grid-x grid-padding-x">
+            <div class="cell medium-4">
+               <code class="code-block"><pre>input: "input.tsv"
+output_dir: "output/"
+assembly: "GRCh38"</pre></code>
+            </div>
+            <div class="cell medium-8">
+               <code class="code-block"><pre>type	id	group	rep	path	tags
+ATAC-seq	control	control	1	ENCFF893KQZ,ENCFF443HVZ	ENCODE
+ATAC-seq	2h	2h	1	ENCFF173INV,ENCFF322IZC	ENCODE
+ATAC-seq	4h	4h	1	ENCFF562JHD,ENCFF943SYH	ENCODE</pre></code>
+            </div>
+          </div>
+        </div>
+
+        <div class="cell medium-2 medium-cell-block-container">
+          <code class="code-inline">taiji run --config config.yml --select Output_Ranks -n 3 +RTS -N3</code>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
 <p>
 If you have used <strong>Taiji</strong> in your research, please consider
 cite the following paper:
@@ -63,3 +101,4 @@ Taiji: System-level identification of key transcription factors reveals
 transcriptional waves in mouse embryonic development.
 <em>Sci. Adv.</em> <strong>5</strong>, eaav3262 (2019).
 </blockquote>
+</section>

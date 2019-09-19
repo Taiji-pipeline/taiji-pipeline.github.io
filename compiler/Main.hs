@@ -17,6 +17,10 @@ main :: IO ()
 main = hakyll $ do
     match "web/templates/*" $ compile templateBodyCompiler
 
+    match "web/static/other/*" $ do
+        route $ gsubRoute "web/" (const "")
+        compile copyFileCompiler
+
     match "web/static/img/*" $ do
         route $ gsubRoute "web/" (const "")
         compile copyFileCompiler

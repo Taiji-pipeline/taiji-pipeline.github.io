@@ -1,0 +1,699 @@
+
+        <html>
+            <head>
+            <style>
+                html {padding:0px;margin:0px;}
+                body {
+                    font: 300 14px Helvetica;
+                    padding:0px;margin:0px;
+                }
+                svg {
+                    height: 100%;
+                    width: 100%;
+                }
+                .node rect {
+                    stroke: #333;
+                    fill: #fff;
+                }
+                .edgePath path {
+                    stroke: #333;
+                    fill: #333;
+                    stroke-width: 1.5px;
+                }
+                .node text {
+                    pointer-events: none;
+                }
+                .tipsy .description {
+                    font-size: 1.5em;
+                }
+            </style>
+            <script src="https://cdn.jsdelivr.net/npm/d3@5.12.0/dist/d3.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.4/dagre.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/dagre-d3@0.6.3/dist/dagre-d3.min.js"></script>
+
+            <link rel="stylesheet" href="https://dagrejs.github.io/project/dagre-d3/latest/demo/tipsy.css">
+            <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+            <script src="https://dagrejs.github.io/project/dagre-d3/latest/demo/tipsy.js"></script>
+            </head>
+            <body><svg></svg></body><script>
+        var jmId_0;
+jmId_0 = new dagreD3.graphlib.
+Graph().
+setGraph({});
+var jmId_1;
+jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default parameters are: bwa mem -M -k 32."
+                         },
+           'ATAC_Align_Prep': { 'description': ""
+                              },
+           'ATAC_Align_Stat': { 'description': ""
+                              },
+           'ATAC_Bam_To_Bed': { 'description': "Convert Bam file to Bed file."
+                              },
+           'ATAC_Call_Peak': { 'description': ""
+                             },
+           'ATAC_Call_Peak_Prep': { 'description': ""
+                                  },
+           'ATAC_Compute_Peak_Cor': { 'description': ""
+                                    },
+           'ATAC_Compute_Peak_Signal': { 'description': ""
+                                       },
+           'ATAC_Compute_Peak_Signal_Prep': { 'description': ""
+                                            },
+           'ATAC_Compute_TE': { 'description': ""
+                              },
+           'ATAC_Compute_TE_Prep': { 'description': ""
+                                   },
+           'ATAC_Download_Data': { 'description': "Download data."
+                                 },
+           'ATAC_Filter_Bam': { 'description': "Remove low quality tags using: samtools -F 0x70c -q 30"
+                              },
+           'ATAC_Find_TFBS_Prep': { 'description': "Prepare for parallel execution."
+                                  },
+           'ATAC_Find_TFBS_Union': { 'description': "Identify TF binding sites in open chromatin regions using the FIMO's motif scanning algorithm. Use 1e-5 as the default p-value cutoff."
+                                   },
+           'ATAC_Fragment_Size_Distr': { 'description': ""
+                                       },
+           'ATAC_Gene_Count': { 'description': ""
+                              },
+           'ATAC_Get_Bam': { 'description': ""
+                           },
+           'ATAC_Get_Bed': { 'description': ""
+                           },
+           'ATAC_Get_Fastq': { 'description': ""
+                             },
+           'ATAC_Get_Peak': { 'description': ""
+                            },
+           'ATAC_Get_TFBS': { 'description': "Retrieve motif binding sites for each sample."
+                            },
+           'ATAC_Get_TFBS_Prep': { 'description': ""
+                                 },
+           'ATAC_Make_Expr_Table': { 'description': ""
+                                   },
+           'ATAC_Make_Index': { 'description': "Generate the BWA index."
+                              },
+           'ATAC_Merge_Bed': { 'description': ""
+                             },
+           'ATAC_Merge_Peaks': { 'description': "Merge peaks called from different samples together to form a non-overlapping set of open chromatin regions."
+                               },
+           'ATAC_QC_Align': { 'description': ""
+                            },
+           'ATAC_QC_Duplication': { 'description': ""
+                                  },
+           'ATAC_QC_Fragment_Size': { 'description': ""
+                                    },
+           'ATAC_QC_TE': { 'description': ""
+                         },
+           'ATAC_Read_Input': { 'description': "Read ATAC-seq data information from input file."
+                              },
+           'ATAC_Remove_Duplicates': { 'description': "Remove duplicated reads using picard."
+                                     },
+           'Compute_Ranks': { 'description': "Perform personalized Pagerank."
+                            },
+           'Compute_Ranks_Prep': { 'description': ""
+                                 },
+           'Compute_Ranks_SC_Cluster': { 'description': ""
+                                       },
+           'Compute_Ranks_SC_Cluster_Prep': { 'description': ""
+                                            },
+           'Create_Linkage': { 'description': ""
+                             },
+           'Create_Linkage_Prep': { 'description': "Prepare for parallel execution."
+                                  },
+           'DropSeq_Align': { 'description': ""
+                            },
+           'DropSeq_Extract_Barcode': { 'description': ""
+                                      },
+           'DropSeq_Filter_Bam': { 'description': ""
+                                 },
+           'DropSeq_Get_Fastq': { 'description': ""
+                                },
+           'DropSeq_Make_Index': { 'description': ""
+                                 },
+           'DropSeq_QC_Anno': { 'description': ""
+                              },
+           'DropSeq_Quantification': { 'description': ""
+                                     },
+           'DropSeq_Read_Input': { 'description': ""
+                                 },
+           'HiC_Read_Input': { 'description': "Read HiC loops from input file."
+                             },
+           'Output_Ranks': { 'description': ""
+                           },
+           'Output_Ranks_SC_Cluster': { 'description': ""
+                                      },
+           'RNA_Align': { 'description': ""
+                        },
+           'RNA_Convert_ID_To_Name': { 'description': ""
+                                     },
+           'RNA_Download_Data': { 'description': ""
+                                },
+           'RNA_Get_Fastq': { 'description': ""
+                            },
+           'RNA_Make_Expr_Table': { 'description': ""
+                                  },
+           'RNA_Make_Index': { 'description': ""
+                             },
+           'RNA_Quant': { 'description': ""
+                        },
+           'RNA_Read_Input': { 'description': "Read RNA-seq data information from input file."
+                             },
+           'SCATAC_Align': { 'description': "Read alignment using BWA. The default parameters are: bwa mem -M -k 32."
+                           },
+           'SCATAC_Align_Prep': { 'description': ""
+                                },
+           'SCATAC_Call_Peaks': { 'description': ""
+                                },
+           'SCATAC_Call_Peaks_Cluster': { 'description': ""
+                                        },
+           'SCATAC_Cluster_Diff_Peak': { 'description': ""
+                                       },
+           'SCATAC_Cluster_Gene_Mat': { 'description': ""
+                                      },
+           'SCATAC_Cluster_Peak_Mat': { 'description': ""
+                                      },
+           'SCATAC_Combine_Clusters': { 'description': ""
+                                      },
+           'SCATAC_Compute_Cluster_Peak_RAS': { 'description': ""
+                                              },
+           'SCATAC_Compute_Gene_RAS': { 'description': ""
+                                      },
+           'SCATAC_Compute_Peak_RAS': { 'description': ""
+                                      },
+           'SCATAC_Compute_Subcluster_Gene_RAS': { 'description': ""
+                                                 },
+           'SCATAC_Download_Data': { 'description': "Download data."
+                                   },
+           'SCATAC_Estimate_Gene_Expr': { 'description': ""
+                                        },
+           'SCATAC_Extract_Sub_Matrix': { 'description': ""
+                                        },
+           'SCATAC_Extract_Tags': { 'description': ""
+                                  },
+           'SCATAC_Extract_Tags_Prep': { 'description': ""
+                                       },
+           'SCATAC_Filter_Bam': { 'description': "Remove low quality tags using: samtools -F 0x70c -q 30"
+                                },
+           'SCATAC_Filter_Cell': { 'description': ""
+                                 },
+           'SCATAC_Find_TFBS': { 'description': ""
+                               },
+           'SCATAC_Find_TFBS_Prep': { 'description': ""
+                                    },
+           'SCATAC_Get_Bam': { 'description': ""
+                             },
+           'SCATAC_Get_Bed': { 'description': ""
+                             },
+           'SCATAC_Get_Fastq': { 'description': ""
+                               },
+           'SCATAC_Get_Ref_Cells': { 'description': ""
+                                   },
+           'SCATAC_Make_Expr_Table': { 'description': ""
+                                     },
+           'SCATAC_Make_Index': { 'description': "Generate the BWA index."
+                                },
+           'SCATAC_Make_Peak_Mat': { 'description': ""
+                                   },
+           'SCATAC_Make_Peak_Mat_Prep': { 'description': ""
+                                        },
+           'SCATAC_Merge_Peaks': { 'description': ""
+                                 },
+           'SCATAC_Merge_Tags': { 'description': ""
+                                },
+           'SCATAC_Merge_Tags_Prep': { 'description': ""
+                                     },
+           'SCATAC_Merged_Cluster': { 'description': ""
+                                    },
+           'SCATAC_Merged_Cluster_Viz': { 'description': ""
+                                        },
+           'SCATAC_Merged_Filter_Mat': { 'description': ""
+                                       },
+           'SCATAC_Merged_Iterative_Cluster': { 'description': ""
+                                              },
+           'SCATAC_Merged_Iterative_Cluster_Config': { 'description': ""
+                                                     },
+           'SCATAC_Merged_Iterative_Cluster_Viz': { 'description': ""
+                                                  },
+           'SCATAC_Merged_Iterative_Filter_Mat': { 'description': ""
+                                                 },
+           'SCATAC_Merged_Iterative_Reduce_Dims': { 'description': ""
+                                                  },
+           'SCATAC_Merged_Reduce_Dims': { 'description': ""
+                                        },
+           'SCATAC_Merged_Reduce_Dims_Prep': { 'description': ""
+                                             },
+           'SCATAC_Pre_Call_Peaks': { 'description': ""
+                                    },
+           'SCATAC_Pre_Cluster': { 'description': ""
+                                 },
+           'SCATAC_Pre_Cluster_Config': { 'description': ""
+                                        },
+           'SCATAC_Pre_Detect_Doublet': { 'description': ""
+                                        },
+           'SCATAC_Pre_Detect_Doublet_Prep': { 'description': ""
+                                             },
+           'SCATAC_Pre_Extract_Tags': { 'description': ""
+                                      },
+           'SCATAC_Pre_Extract_Tags_Prep': { 'description': ""
+                                           },
+           'SCATAC_Pre_Filter_Mat': { 'description': ""
+                                    },
+           'SCATAC_Pre_Get_Genes': { 'description': ""
+                                   },
+           'SCATAC_Pre_Get_Peak_List': { 'description': ""
+                                       },
+           'SCATAC_Pre_Get_Windows': { 'description': ""
+                                     },
+           'SCATAC_Pre_Make_Feat_Mat': { 'description': ""
+                                       },
+           'SCATAC_Pre_Make_Feat_Mat_Prep': { 'description': ""
+                                            },
+           'SCATAC_Pre_Make_Gene_Mat': { 'description': "Create cell by gene matrix for each sample."
+                                       },
+           'SCATAC_Pre_Make_Gene_Mat_Prep': { 'description': ""
+                                            },
+           'SCATAC_Pre_Make_Peak_Mat': { 'description': ""
+                                       },
+           'SCATAC_Pre_Make_Peak_Mat_Prep': { 'description': ""
+                                            },
+           'SCATAC_Pre_Make_Window_Mat': { 'description': ""
+                                         },
+           'SCATAC_Pre_Merge_Feat_Mat': { 'description': ""
+                                        },
+           'SCATAC_Pre_Merge_Peaks': { 'description': ""
+                                     },
+           'SCATAC_Pre_Reduce_Dims': { 'description': ""
+                                     },
+           'SCATAC_Pre_Remove_Doublets': { 'description': ""
+                                         },
+           'SCATAC_Pre_Remove_Doublets_Prep': { 'description': ""
+                                              },
+           'SCATAC_QC': { 'description': ""
+                        },
+           'SCATAC_Read_Input': { 'description': "Read ATAC-seq data information from input file."
+                                },
+           'SCATAC_Remove_Duplicates': { 'description': ""
+                                       },
+           'SCATAC_Subcluster_Diff_Peak': { 'description': ""
+                                          },
+           'SCATAC_Subcluster_Extract_Tags': { 'description': ""
+                                             },
+           'SCATAC_Subcluster_Extract_Tags_Prep': { 'description': ""
+                                                  },
+           'SCATAC_Subcluster_Gene_Mat': { 'description': ""
+                                         },
+           'SCATAC_Subcluster_Make_BigWig': { 'description': ""
+                                            },
+           'SCATAC_Subcluster_Merge_Tags': { 'description': ""
+                                           },
+           'SCATAC_Subcluster_Merge_Tags_Prep': { 'description': ""
+                                                },
+           'SCATAC_Subcluster_Peak_Mat': { 'description': ""
+                                         }
+         };
+var jmId_2;
+jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
+"SCATAC_Pre_Detect_Doublet_Prep"],
+["SCATAC_Remove_Duplicates",
+"SCATAC_Pre_Detect_Doublet_Prep"],
+["DropSeq_Quantification",
+"DropSeq_QC_Anno"],
+["SCATAC_Merge_Peaks",
+"SCATAC_Compute_Cluster_Peak_RAS"],
+["SCATAC_Merged_Iterative_Cluster",
+"SCATAC_Combine_Clusters"],
+["SCATAC_Call_Peaks_Cluster",
+"SCATAC_Cluster_Diff_Peak"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Cluster_Peak_Mat"],
+["ATAC_Bam_To_Bed",
+"ATAC_Get_Bed"],
+["SCATAC_Compute_Cluster_Peak_RAS",
+"SCATAC_Cluster_Diff_Peak"],
+["SCATAC_Pre_Remove_Doublets",
+"SCATAC_Pre_Make_Feat_Mat_Prep"],
+["ATAC_Merge_Peaks",
+"ATAC_Compute_Peak_Signal_Prep"],
+["RNA_Align", "RNA_Quant"],
+["SCATAC_Pre_Make_Feat_Mat",
+"SCATAC_Pre_Merge_Feat_Mat"],
+["ATAC_Get_TFBS",
+"Create_Linkage_Prep"],
+["ATAC_Remove_Duplicates",
+"ATAC_QC_Duplication"],
+["Compute_Ranks_SC_Cluster",
+"Output_Ranks_SC_Cluster"],
+["ATAC_Align", "ATAC_Get_Bam"],
+["RNA_Convert_ID_To_Name",
+"RNA_Make_Expr_Table"],
+["SCATAC_Cluster_Peak_Mat",
+"SCATAC_Compute_Cluster_Peak_RAS"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Cluster_Gene_Mat"],
+["ATAC_Align",
+"ATAC_Align_Stat"],
+["SCATAC_Get_Fastq",
+"SCATAC_Align_Prep"],
+["ATAC_Get_Fastq",
+"ATAC_Align_Prep"],
+["SCATAC_Combine_Clusters",
+"SCATAC_Subcluster_Extract_Tags_Prep"],
+["SCATAC_Merged_Iterative_Cluster_Config",
+"SCATAC_Merged_Iterative_Cluster"],
+["SCATAC_Subcluster_Extract_Tags",
+"SCATAC_Subcluster_Merge_Tags_Prep"],
+["ATAC_Compute_Peak_Signal_Prep",
+"ATAC_Compute_Peak_Signal"],
+["SCATAC_Extract_Tags_Prep",
+"SCATAC_Extract_Tags"],
+["ATAC_Compute_TE_Prep",
+"ATAC_Compute_TE"],
+["SCATAC_Subcluster_Extract_Tags_Prep",
+"SCATAC_Subcluster_Extract_Tags"],
+["SCATAC_Merged_Reduce_Dims_Prep",
+"SCATAC_Merged_Reduce_Dims"],
+["ATAC_Compute_Peak_Signal",
+"ATAC_Compute_Peak_Cor"],
+["ATAC_Get_TFBS_Prep",
+"ATAC_Get_TFBS"],
+["SCATAC_Make_Peak_Mat",
+"SCATAC_Cluster_Peak_Mat"],
+["SCATAC_Pre_Detect_Doublet_Prep",
+"SCATAC_Pre_Detect_Doublet"],
+["SCATAC_Pre_Get_Windows",
+"SCATAC_Pre_Make_Window_Mat"],
+["SCATAC_Pre_Make_Gene_Mat",
+"SCATAC_Cluster_Gene_Mat"],
+["SCATAC_Pre_Make_Feat_Mat_Prep",
+"SCATAC_Pre_Make_Feat_Mat"],
+["SCATAC_Pre_Extract_Tags_Prep",
+"SCATAC_Pre_Extract_Tags"],
+["RNA_Read_Input",
+"RNA_Download_Data"],
+["SCATAC_Merge_Tags_Prep",
+"SCATAC_Merge_Tags"],
+["Compute_Ranks_Prep",
+"Compute_Ranks"],
+["ATAC_Call_Peak_Prep",
+"ATAC_Call_Peak"],
+["Create_Linkage_Prep",
+"Create_Linkage"],
+["SCATAC_Merged_Iterative_Reduce_Dims",
+"SCATAC_Merged_Iterative_Cluster_Config"],
+["ATAC_Remove_Duplicates",
+"ATAC_Bam_To_Bed"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Get_Ref_Cells"],
+["SCATAC_Pre_Detect_Doublet",
+"SCATAC_QC"],
+["ATAC_Download_Data",
+"ATAC_Get_Fastq"],
+["ATAC_Make_Expr_Table",
+"Create_Linkage_Prep"],
+["SCATAC_Download_Data",
+"SCATAC_Get_Fastq"],
+["SCATAC_Merged_Iterative_Filter_Mat",
+"SCATAC_Merged_Iterative_Reduce_Dims"],
+["SCATAC_Estimate_Gene_Expr",
+"SCATAC_Make_Expr_Table"],
+["DropSeq_Read_Input",
+"DropSeq_Get_Fastq"],
+["SCATAC_Filter_Cell",
+"SCATAC_Get_Bed"],
+["DropSeq_Filter_Bam",
+"DropSeq_Quantification"],
+["HiC_Read_Input",
+"Create_Linkage_Prep"],
+["ATAC_Get_Bed",
+"ATAC_Compute_Peak_Signal_Prep"],
+["SCATAC_Merged_Reduce_Dims",
+"SCATAC_Merged_Cluster"],
+["SCATAC_Merge_Peaks",
+"SCATAC_Make_Peak_Mat_Prep"],
+["ATAC_Get_Bam",
+"ATAC_Filter_Bam"],
+["ATAC_Get_Peak",
+"Create_Linkage_Prep"],
+["SCATAC_Pre_Make_Feat_Mat",
+"SCATAC_Extract_Sub_Matrix"],
+["SCATAC_Combine_Clusters",
+"SCATAC_Subcluster_Peak_Mat"],
+["SCATAC_Pre_Get_Genes",
+"SCATAC_Compute_Subcluster_Gene_RAS"],
+["SCATAC_Pre_Merge_Peaks",
+"SCATAC_Pre_Make_Peak_Mat_Prep"],
+["RNA_Quant",
+"RNA_Convert_ID_To_Name"],
+["DropSeq_Make_Index",
+"DropSeq_Align"],
+["RNA_Make_Index", "RNA_Align"],
+["SCATAC_Compute_Peak_RAS",
+"SCATAC_Subcluster_Diff_Peak"],
+["SCATAC_Make_Expr_Table",
+"Compute_Ranks_SC_Cluster_Prep"],
+["SCATAC_Subcluster_Merge_Tags",
+"SCATAC_Call_Peaks"],
+["SCATAC_Get_Bed",
+"SCATAC_Pre_Extract_Tags_Prep"],
+["RNA_Make_Expr_Table",
+"Create_Linkage_Prep"],
+["ATAC_Get_Bed",
+"ATAC_Compute_TE_Prep"],
+["ATAC_Download_Data",
+"ATAC_Call_Peak_Prep"],
+["SCATAC_Get_Bed",
+"SCATAC_Pre_Remove_Doublets_Prep"],
+["SCATAC_Pre_Remove_Doublets",
+"SCATAC_Subcluster_Extract_Tags_Prep"],
+["SCATAC_QC",
+"SCATAC_Merged_Cluster_Viz"],
+["ATAC_Get_Peak",
+"ATAC_Get_TFBS_Prep"],
+["SCATAC_Get_Bed",
+"SCATAC_Pre_Get_Windows"],
+["ATAC_Find_TFBS_Prep",
+"ATAC_Find_TFBS_Union"],
+["SCATAC_Download_Data",
+"SCATAC_Get_Bam"],
+["SCATAC_Find_TFBS",
+"Compute_Ranks_SC_Cluster_Prep"],
+["SCATAC_Pre_Make_Gene_Mat",
+"SCATAC_Subcluster_Gene_Mat"],
+["SCATAC_Call_Peaks",
+"Compute_Ranks_SC_Cluster_Prep"],
+["SCATAC_Extract_Sub_Matrix",
+"SCATAC_Merged_Iterative_Filter_Mat"],
+["SCATAC_Remove_Duplicates",
+"SCATAC_Filter_Cell"],
+["DropSeq_Align",
+"DropSeq_Filter_Bam"],
+["ATAC_Call_Peak",
+"ATAC_Get_Peak"],
+["SCATAC_Make_Peak_Mat",
+"SCATAC_Subcluster_Peak_Mat"],
+["ATAC_Download_Data",
+"ATAC_Get_Bam"],
+["SCATAC_Align",
+"SCATAC_Filter_Bam"],
+["ATAC_Filter_Bam",
+"ATAC_Remove_Duplicates"],
+["ATAC_Compute_TE",
+"ATAC_QC_TE"],
+["SCATAC_Pre_Get_Genes",
+"SCATAC_Compute_Gene_RAS"],
+["ATAC_Find_TFBS_Union",
+"ATAC_Get_TFBS_Prep"],
+["SCATAC_Cluster_Gene_Mat",
+"SCATAC_Compute_Gene_RAS"],
+["SCATAC_Subcluster_Merge_Tags",
+"SCATAC_Estimate_Gene_Expr"],
+["Create_Linkage",
+"Compute_Ranks_Prep"],
+["SCATAC_Pre_Get_Peak_List",
+"SCATAC_Pre_Make_Feat_Mat_Prep"],
+["SCATAC_Call_Peaks",
+"SCATAC_Merge_Peaks"],
+["SCATAC_Pre_Extract_Tags",
+"SCATAC_Pre_Call_Peaks"],
+["SCATAC_Pre_Merge_Feat_Mat",
+"SCATAC_Merged_Filter_Mat"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Merged_Cluster_Viz"],
+["SCATAC_Pre_Call_Peaks",
+"SCATAC_Pre_Merge_Peaks"],
+["SCATAC_Pre_Detect_Doublet",
+"SCATAC_Pre_Remove_Doublets_Prep"],
+["ATAC_Fragment_Size_Distr",
+"ATAC_QC_Fragment_Size"],
+["SCATAC_Subcluster_Gene_Mat",
+"SCATAC_Compute_Subcluster_Gene_RAS"],
+["SCATAC_Pre_Call_Peaks",
+"SCATAC_Pre_Get_Peak_List"],
+["SCATAC_Merge_Peaks",
+"SCATAC_Find_TFBS_Prep"],
+["SCATAC_Get_Bam",
+"SCATAC_Remove_Duplicates"],
+["RNA_Download_Data",
+"RNA_Convert_ID_To_Name"],
+["ATAC_Merge_Peaks",
+"ATAC_Find_TFBS_Prep"],
+["SCATAC_Merged_Iterative_Cluster",
+"SCATAC_Merged_Iterative_Cluster_Viz"],
+["SCATAC_Merge_Tags",
+"SCATAC_Call_Peaks_Cluster"],
+["Compute_Ranks",
+"Output_Ranks"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Extract_Tags_Prep"],
+["DropSeq_Extract_Barcode",
+"DropSeq_Make_Index"],
+["SCATAC_Pre_Get_Windows",
+"SCATAC_Pre_Make_Gene_Mat_Prep"],
+["SCATAC_Extract_Tags",
+"SCATAC_Merge_Tags_Prep"],
+["SCATAC_Pre_Cluster_Config",
+"SCATAC_Pre_Cluster"],
+["ATAC_Download_Data",
+"ATAC_Get_Peak"],
+["SCATAC_Call_Peaks",
+"SCATAC_Subcluster_Diff_Peak"],
+["ATAC_Get_Peak",
+"ATAC_Merge_Peaks"],
+["SCATAC_Read_Input",
+"SCATAC_Download_Data"],
+["SCATAC_Pre_Remove_Doublets_Prep",
+"SCATAC_Pre_Remove_Doublets"],
+["SCATAC_Pre_Make_Peak_Mat_Prep",
+"SCATAC_Pre_Make_Peak_Mat"],
+["SCATAC_Pre_Remove_Doublets",
+"SCATAC_Extract_Tags_Prep"],
+["SCATAC_Combine_Clusters",
+"SCATAC_Subcluster_Gene_Mat"],
+["SCATAC_Pre_Get_Genes",
+"SCATAC_Pre_Make_Gene_Mat_Prep"],
+["SCATAC_Pre_Make_Gene_Mat_Prep",
+"SCATAC_Pre_Make_Gene_Mat"],
+["SCATAC_Find_TFBS_Prep",
+"SCATAC_Find_TFBS"],
+["Compute_Ranks_SC_Cluster_Prep",
+"Compute_Ranks_SC_Cluster"],
+["ATAC_Align_Stat",
+"ATAC_QC_Align"],
+["SCATAC_Subcluster_Merge_Tags_Prep",
+"SCATAC_Subcluster_Merge_Tags"],
+["ATAC_Remove_Duplicates",
+"ATAC_Fragment_Size_Distr"],
+["ATAC_Align_Prep",
+"ATAC_Align"],
+["SCATAC_Align_Prep",
+"SCATAC_Align"],
+["SCATAC_Make_Peak_Mat_Prep",
+"SCATAC_Make_Peak_Mat"],
+["ATAC_Read_Input",
+"ATAC_Download_Data"],
+["RNA_Download_Data",
+"RNA_Get_Fastq"],
+["SCATAC_Get_Fastq",
+"SCATAC_Make_Index"],
+["SCATAC_Pre_Reduce_Dims",
+"SCATAC_Pre_Cluster_Config"],
+["SCATAC_Pre_Filter_Mat",
+"SCATAC_Pre_Reduce_Dims"],
+["SCATAC_QC",
+"SCATAC_Merged_Iterative_Cluster_Viz"],
+["SCATAC_Subcluster_Peak_Mat",
+"SCATAC_Compute_Peak_RAS"],
+["SCATAC_Pre_Get_Windows",
+"SCATAC_Pre_Make_Peak_Mat_Prep"],
+["SCATAC_Merged_Filter_Mat",
+"SCATAC_Merged_Reduce_Dims_Prep"],
+["RNA_Get_Fastq",
+"RNA_Make_Index"],
+["ATAC_Get_Fastq",
+"ATAC_Make_Index"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Extract_Sub_Matrix"],
+["SCATAC_Subcluster_Merge_Tags",
+"SCATAC_Subcluster_Make_BigWig"],
+["SCATAC_Pre_Remove_Doublets",
+"SCATAC_Make_Peak_Mat_Prep"],
+["ATAC_Get_Bed",
+"ATAC_Merge_Bed"],
+["ATAC_Make_Index",
+"ATAC_Align_Prep"],
+["SCATAC_Make_Index",
+"SCATAC_Align_Prep"],
+["SCATAC_Filter_Bam",
+"SCATAC_Get_Bam"],
+["ATAC_Gene_Count",
+"ATAC_Make_Expr_Table"],
+["ATAC_Merge_Bed",
+"ATAC_Call_Peak_Prep"],
+["DropSeq_Get_Fastq",
+"DropSeq_Extract_Barcode"],
+["RNA_Make_Expr_Table",
+"Compute_Ranks_Prep"],
+["SCATAC_Merge_Peaks",
+"SCATAC_Compute_Peak_RAS"],
+["SCATAC_Pre_Make_Window_Mat",
+"SCATAC_Pre_Filter_Mat"],
+["SCATAC_Pre_Cluster",
+"SCATAC_Pre_Extract_Tags_Prep"],
+["SCATAC_Download_Data",
+"SCATAC_Get_Bed"],
+["ATAC_Merge_Bed",
+"ATAC_Gene_Count"],
+["ATAC_Download_Data",
+"ATAC_Get_Bed"]];
+Object.keys(jmId_1).
+forEach((function(jmId_3)
+         {
+           var jmId_4;
+           jmId_4 = jmId_1[jmId_3];
+           jmId_4.label = jmId_3;
+           jmId_4.rx = 5;
+           jmId_4.ry = 5;
+           jmId_0.setNode(jmId_3, jmId_4);
+         }));
+jmId_2.forEach((function(jmId_5)
+                {
+                  jmId_0.setEdge(jmId_5[0],
+                  jmId_5[1], {});
+                }));
+var jmId_6;
+jmId_6 = new dagreD3.render();
+var jmId_7;
+jmId_7 = d3.select("svg");
+var jmId_8;
+jmId_8 = jmId_7.append("g");
+var jmId_9;
+jmId_9 = d3.zoom().on("zoom",
+(function()
+ {
+   jmId_8.attr("transform", d3.
+   event.
+   transform);
+ }));
+jmId_7.call(jmId_9);
+var jmId_10;
+jmId_10 = (function(jmId_11)
+           {
+             return (("<p class='description'>"
+             +
+             jmId_11)
+             +
+             "<\/p>");
+           });
+jmId_6(jmId_8, jmId_0);
+jmId_8.selectAll("g.node").
+attr("title", (function(jmId_12)
+               {
+                 return jmId_10(jmId_0.
+                 node(jmId_12).
+                 description);
+               })).
+each((function(jmId_13)
+      {
+        $(this).tipsy({ 'gravity': "w",
+                        'html': true, 'opacity': 1
+                      });
+      }));</script></html>

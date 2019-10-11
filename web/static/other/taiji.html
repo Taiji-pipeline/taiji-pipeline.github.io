@@ -24,7 +24,7 @@
                     pointer-events: none;
                 }
                 .tipsy .description {
-                    font-size: 1.5em;
+                    font-size: 1.2em;
                 }
             </style>
             <script src="https://cdn.jsdelivr.net/npm/d3@5.12.0/dist/d3.min.js"></script>
@@ -53,8 +53,6 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                              },
            'ATAC_Call_Peak_Prep': { 'description': ""
                                   },
-           'ATAC_Compute_Peak_Cor': { 'description': ""
-                                    },
            'ATAC_Compute_Peak_Signal': { 'description': ""
                                        },
            'ATAC_Compute_Peak_Signal_Prep': { 'description': ""
@@ -67,7 +65,7 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                  },
            'ATAC_Filter_Bam': { 'description': "Remove low quality tags using: samtools -F 0x70c -q 30"
                               },
-           'ATAC_Find_TFBS_Prep': { 'description': "Prepare for parallel execution."
+           'ATAC_Find_TFBS_Prep': { 'description': ""
                                   },
            'ATAC_Find_TFBS_Union': { 'description': "Identify TF binding sites in open chromatin regions using the FIMO's motif scanning algorithm. Use 1e-5 as the default p-value cutoff."
                                    },
@@ -95,14 +93,8 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                              },
            'ATAC_Merge_Peaks': { 'description': "Merge peaks called from different samples together to form a non-overlapping set of open chromatin regions."
                                },
-           'ATAC_QC_Align': { 'description': ""
-                            },
-           'ATAC_QC_Duplication': { 'description': ""
-                                  },
-           'ATAC_QC_Fragment_Size': { 'description': ""
-                                    },
-           'ATAC_QC_TE': { 'description': ""
-                         },
+           'ATAC_QC': { 'description': "Generating QC plots."
+                      },
            'ATAC_Read_Input': { 'description': "Read ATAC-seq data information from input file."
                               },
            'ATAC_Remove_Duplicates': { 'description': "Remove duplicated reads using picard."
@@ -115,6 +107,10 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                        },
            'Compute_Ranks_SC_Cluster_Prep': { 'description': ""
                                             },
+           'Compute_Ranks_SC_Subcluster': { 'description': ""
+                                          },
+           'Compute_Ranks_SC_Subcluster_Prep': { 'description': ""
+                                               },
            'Create_Linkage': { 'description': ""
                              },
            'Create_Linkage_Prep': { 'description': "Prepare for parallel execution."
@@ -129,8 +125,8 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                 },
            'DropSeq_Make_Index': { 'description': ""
                                  },
-           'DropSeq_QC_Anno': { 'description': ""
-                              },
+           'DropSeq_QC': { 'description': ""
+                         },
            'DropSeq_Quantification': { 'description': ""
                                      },
            'DropSeq_Read_Input': { 'description': ""
@@ -141,6 +137,8 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                            },
            'Output_Ranks_SC_Cluster': { 'description': ""
                                       },
+           'Output_Ranks_SC_Subcluster': { 'description': ""
+                                         },
            'RNA_Align': { 'description': ""
                         },
            'RNA_Convert_ID_To_Name': { 'description': ""
@@ -167,24 +165,16 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                         },
            'SCATAC_Cluster_Diff_Peak': { 'description': ""
                                        },
-           'SCATAC_Cluster_Gene_Mat': { 'description': ""
+           'SCATAC_Cluster_Peak_Acc': { 'description': ""
                                       },
            'SCATAC_Cluster_Peak_Mat': { 'description': ""
                                       },
+           'SCATAC_Cluster_Transcript_Mat': { 'description': ""
+                                            },
            'SCATAC_Combine_Clusters': { 'description': ""
                                       },
-           'SCATAC_Compute_Cluster_Peak_RAS': { 'description': ""
-                                              },
-           'SCATAC_Compute_Gene_RAS': { 'description': ""
-                                      },
-           'SCATAC_Compute_Peak_RAS': { 'description': ""
-                                      },
-           'SCATAC_Compute_Subcluster_Gene_RAS': { 'description': ""
-                                                 },
            'SCATAC_Download_Data': { 'description': "Download data."
                                    },
-           'SCATAC_Estimate_Gene_Expr': { 'description': ""
-                                        },
            'SCATAC_Extract_Sub_Matrix': { 'description': ""
                                         },
            'SCATAC_Extract_Tags': { 'description': ""
@@ -199,16 +189,14 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                },
            'SCATAC_Find_TFBS_Prep': { 'description': ""
                                     },
+           'SCATAC_Gene_Acc': { 'description': ""
+                              },
            'SCATAC_Get_Bam': { 'description': ""
                              },
            'SCATAC_Get_Bed': { 'description': ""
                              },
            'SCATAC_Get_Fastq': { 'description': ""
                                },
-           'SCATAC_Get_Ref_Cells': { 'description': ""
-                                   },
-           'SCATAC_Make_Expr_Table': { 'description': ""
-                                     },
            'SCATAC_Make_Index': { 'description': "Generate the BWA index."
                                 },
            'SCATAC_Make_Peak_Mat': { 'description': ""
@@ -257,9 +245,9 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                            },
            'SCATAC_Pre_Filter_Mat': { 'description': ""
                                     },
-           'SCATAC_Pre_Get_Genes': { 'description': ""
-                                   },
            'SCATAC_Pre_Get_Peak_List': { 'description': ""
+                                       },
+           'SCATAC_Pre_Get_Promoters': { 'description': "Get the list of promoters from the annotation file."
                                        },
            'SCATAC_Pre_Get_Windows': { 'description': ""
                                      },
@@ -267,14 +255,14 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                        },
            'SCATAC_Pre_Make_Feat_Mat_Prep': { 'description': ""
                                             },
-           'SCATAC_Pre_Make_Gene_Mat': { 'description': "Create cell by gene matrix for each sample."
-                                       },
-           'SCATAC_Pre_Make_Gene_Mat_Prep': { 'description': ""
-                                            },
            'SCATAC_Pre_Make_Peak_Mat': { 'description': ""
                                        },
            'SCATAC_Pre_Make_Peak_Mat_Prep': { 'description': ""
                                             },
+           'SCATAC_Pre_Make_Transcript_Mat': { 'description': "Create cell by transcript matrix for each sample."
+                                             },
+           'SCATAC_Pre_Make_Transcript_Mat_Prep': { 'description': ""
+                                                  },
            'SCATAC_Pre_Make_Window_Mat': { 'description': ""
                                          },
            'SCATAC_Pre_Merge_Feat_Mat': { 'description': ""
@@ -299,7 +287,7 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                              },
            'SCATAC_Subcluster_Extract_Tags_Prep': { 'description': ""
                                                   },
-           'SCATAC_Subcluster_Gene_Mat': { 'description': ""
+           'SCATAC_Subcluster_Gene_Acc': { 'description': ""
                                          },
            'SCATAC_Subcluster_Make_BigWig': { 'description': ""
                                             },
@@ -307,58 +295,66 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                            },
            'SCATAC_Subcluster_Merge_Tags_Prep': { 'description': ""
                                                 },
+           'SCATAC_Subcluster_Peak_Acc': { 'description': ""
+                                         },
            'SCATAC_Subcluster_Peak_Mat': { 'description': ""
-                                         }
+                                         },
+           'SCATAC_Subcluster_Transcript_Mat': { 'description': ""
+                                               }
          };
 var jmId_2;
 jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Pre_Detect_Doublet_Prep"],
 ["SCATAC_Remove_Duplicates",
 "SCATAC_Pre_Detect_Doublet_Prep"],
-["DropSeq_Quantification",
-"DropSeq_QC_Anno"],
-["SCATAC_Merge_Peaks",
-"SCATAC_Compute_Cluster_Peak_RAS"],
 ["SCATAC_Merged_Iterative_Cluster",
 "SCATAC_Combine_Clusters"],
 ["SCATAC_Call_Peaks_Cluster",
+"SCATAC_Cluster_Diff_Peak"],
+["SCATAC_Subcluster_Peak_Acc",
+"SCATAC_Subcluster_Diff_Peak"],
+["SCATAC_Cluster_Peak_Acc",
 "SCATAC_Cluster_Diff_Peak"],
 ["SCATAC_Merged_Cluster",
 "SCATAC_Cluster_Peak_Mat"],
 ["ATAC_Bam_To_Bed",
 "ATAC_Get_Bed"],
-["SCATAC_Compute_Cluster_Peak_RAS",
-"SCATAC_Cluster_Diff_Peak"],
 ["SCATAC_Pre_Remove_Doublets",
 "SCATAC_Pre_Make_Feat_Mat_Prep"],
-["ATAC_Merge_Peaks",
+["ATAC_Fragment_Size_Distr",
+"ATAC_QC"], ["ATAC_Merge_Peaks",
 "ATAC_Compute_Peak_Signal_Prep"],
+["SCATAC_Merge_Peaks",
+"SCATAC_Cluster_Peak_Acc"],
 ["RNA_Align", "RNA_Quant"],
 ["SCATAC_Pre_Make_Feat_Mat",
 "SCATAC_Pre_Merge_Feat_Mat"],
+["ATAC_Align_Stat", "ATAC_QC"],
+["SCATAC_Gene_Acc",
+"Compute_Ranks_SC_Cluster_Prep"],
 ["ATAC_Get_TFBS",
 "Create_Linkage_Prep"],
-["ATAC_Remove_Duplicates",
-"ATAC_QC_Duplication"],
+["SCATAC_Pre_Get_Windows",
+"SCATAC_Pre_Make_Transcript_Mat_Prep"],
 ["Compute_Ranks_SC_Cluster",
 "Output_Ranks_SC_Cluster"],
 ["ATAC_Align", "ATAC_Get_Bam"],
 ["RNA_Convert_ID_To_Name",
 "RNA_Make_Expr_Table"],
-["SCATAC_Cluster_Peak_Mat",
-"SCATAC_Compute_Cluster_Peak_RAS"],
-["SCATAC_Merged_Cluster",
-"SCATAC_Cluster_Gene_Mat"],
 ["ATAC_Align",
 "ATAC_Align_Stat"],
 ["SCATAC_Get_Fastq",
 "SCATAC_Align_Prep"],
+["SCATAC_Merged_Cluster",
+"SCATAC_Cluster_Transcript_Mat"],
 ["ATAC_Get_Fastq",
 "ATAC_Align_Prep"],
 ["SCATAC_Combine_Clusters",
 "SCATAC_Subcluster_Extract_Tags_Prep"],
 ["SCATAC_Merged_Iterative_Cluster_Config",
 "SCATAC_Merged_Iterative_Cluster"],
+["DropSeq_Quantification",
+"DropSeq_QC"],
 ["SCATAC_Subcluster_Extract_Tags",
 "SCATAC_Subcluster_Merge_Tags_Prep"],
 ["ATAC_Compute_Peak_Signal_Prep",
@@ -369,10 +365,12 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "ATAC_Compute_TE"],
 ["SCATAC_Subcluster_Extract_Tags_Prep",
 "SCATAC_Subcluster_Extract_Tags"],
+["SCATAC_Pre_Make_Transcript_Mat_Prep",
+"SCATAC_Pre_Make_Transcript_Mat"],
+["Compute_Ranks_SC_Subcluster_Prep",
+"Compute_Ranks_SC_Subcluster"],
 ["SCATAC_Merged_Reduce_Dims_Prep",
 "SCATAC_Merged_Reduce_Dims"],
-["ATAC_Compute_Peak_Signal",
-"ATAC_Compute_Peak_Cor"],
 ["ATAC_Get_TFBS_Prep",
 "ATAC_Get_TFBS"],
 ["SCATAC_Make_Peak_Mat",
@@ -381,8 +379,6 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Pre_Detect_Doublet"],
 ["SCATAC_Pre_Get_Windows",
 "SCATAC_Pre_Make_Window_Mat"],
-["SCATAC_Pre_Make_Gene_Mat",
-"SCATAC_Cluster_Gene_Mat"],
 ["SCATAC_Pre_Make_Feat_Mat_Prep",
 "SCATAC_Pre_Make_Feat_Mat"],
 ["SCATAC_Pre_Extract_Tags_Prep",
@@ -401,10 +397,10 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Merged_Iterative_Cluster_Config"],
 ["ATAC_Remove_Duplicates",
 "ATAC_Bam_To_Bed"],
-["SCATAC_Merged_Cluster",
-"SCATAC_Get_Ref_Cells"],
 ["SCATAC_Pre_Detect_Doublet",
 "SCATAC_QC"],
+["SCATAC_Cluster_Transcript_Mat",
+"SCATAC_Gene_Acc"],
 ["ATAC_Download_Data",
 "ATAC_Get_Fastq"],
 ["ATAC_Make_Expr_Table",
@@ -413,8 +409,6 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Get_Fastq"],
 ["SCATAC_Merged_Iterative_Filter_Mat",
 "SCATAC_Merged_Iterative_Reduce_Dims"],
-["SCATAC_Estimate_Gene_Expr",
-"SCATAC_Make_Expr_Table"],
 ["DropSeq_Read_Input",
 "DropSeq_Get_Fastq"],
 ["SCATAC_Filter_Cell",
@@ -433,12 +427,12 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "ATAC_Filter_Bam"],
 ["ATAC_Get_Peak",
 "Create_Linkage_Prep"],
+["SCATAC_Subcluster_Transcript_Mat",
+"SCATAC_Subcluster_Gene_Acc"],
 ["SCATAC_Pre_Make_Feat_Mat",
 "SCATAC_Extract_Sub_Matrix"],
 ["SCATAC_Combine_Clusters",
 "SCATAC_Subcluster_Peak_Mat"],
-["SCATAC_Pre_Get_Genes",
-"SCATAC_Compute_Subcluster_Gene_RAS"],
 ["SCATAC_Pre_Merge_Peaks",
 "SCATAC_Pre_Make_Peak_Mat_Prep"],
 ["RNA_Quant",
@@ -446,10 +440,6 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 ["DropSeq_Make_Index",
 "DropSeq_Align"],
 ["RNA_Make_Index", "RNA_Align"],
-["SCATAC_Compute_Peak_RAS",
-"SCATAC_Subcluster_Diff_Peak"],
-["SCATAC_Make_Expr_Table",
-"Compute_Ranks_SC_Cluster_Prep"],
 ["SCATAC_Subcluster_Merge_Tags",
 "SCATAC_Call_Peaks"],
 ["SCATAC_Get_Bed",
@@ -464,6 +454,12 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Pre_Remove_Doublets_Prep"],
 ["SCATAC_Pre_Remove_Doublets",
 "SCATAC_Subcluster_Extract_Tags_Prep"],
+["SCATAC_Call_Peaks_Cluster",
+"Compute_Ranks_SC_Cluster_Prep"],
+["SCATAC_Pre_Get_Promoters",
+"SCATAC_Gene_Acc"],
+["SCATAC_Cluster_Peak_Mat",
+"SCATAC_Cluster_Peak_Acc"],
 ["SCATAC_QC",
 "SCATAC_Merged_Cluster_Viz"],
 ["ATAC_Get_Peak",
@@ -475,10 +471,6 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 ["SCATAC_Download_Data",
 "SCATAC_Get_Bam"],
 ["SCATAC_Find_TFBS",
-"Compute_Ranks_SC_Cluster_Prep"],
-["SCATAC_Pre_Make_Gene_Mat",
-"SCATAC_Subcluster_Gene_Mat"],
-["SCATAC_Call_Peaks",
 "Compute_Ranks_SC_Cluster_Prep"],
 ["SCATAC_Extract_Sub_Matrix",
 "SCATAC_Merged_Iterative_Filter_Mat"],
@@ -494,18 +486,18 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "ATAC_Get_Bam"],
 ["SCATAC_Align",
 "SCATAC_Filter_Bam"],
+["SCATAC_Pre_Make_Transcript_Mat",
+"SCATAC_Subcluster_Transcript_Mat"],
 ["ATAC_Filter_Bam",
 "ATAC_Remove_Duplicates"],
-["ATAC_Compute_TE",
-"ATAC_QC_TE"],
-["SCATAC_Pre_Get_Genes",
-"SCATAC_Compute_Gene_RAS"],
+["SCATAC_Subcluster_Gene_Acc",
+"Compute_Ranks_SC_Subcluster_Prep"],
+["ATAC_Remove_Duplicates",
+"ATAC_QC"],
+["SCATAC_Combine_Clusters",
+"SCATAC_Subcluster_Transcript_Mat"],
 ["ATAC_Find_TFBS_Union",
 "ATAC_Get_TFBS_Prep"],
-["SCATAC_Cluster_Gene_Mat",
-"SCATAC_Compute_Gene_RAS"],
-["SCATAC_Subcluster_Merge_Tags",
-"SCATAC_Estimate_Gene_Expr"],
 ["Create_Linkage",
 "Compute_Ranks_Prep"],
 ["SCATAC_Pre_Get_Peak_List",
@@ -514,6 +506,8 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Merge_Peaks"],
 ["SCATAC_Pre_Extract_Tags",
 "SCATAC_Pre_Call_Peaks"],
+["SCATAC_Pre_Get_Promoters",
+"SCATAC_Pre_Make_Transcript_Mat_Prep"],
 ["SCATAC_Pre_Merge_Feat_Mat",
 "SCATAC_Merged_Filter_Mat"],
 ["SCATAC_Merged_Cluster",
@@ -522,16 +516,14 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Pre_Merge_Peaks"],
 ["SCATAC_Pre_Detect_Doublet",
 "SCATAC_Pre_Remove_Doublets_Prep"],
-["ATAC_Fragment_Size_Distr",
-"ATAC_QC_Fragment_Size"],
-["SCATAC_Subcluster_Gene_Mat",
-"SCATAC_Compute_Subcluster_Gene_RAS"],
 ["SCATAC_Pre_Call_Peaks",
 "SCATAC_Pre_Get_Peak_List"],
 ["SCATAC_Merge_Peaks",
 "SCATAC_Find_TFBS_Prep"],
 ["SCATAC_Get_Bam",
 "SCATAC_Remove_Duplicates"],
+["Compute_Ranks_SC_Subcluster",
+"Output_Ranks_SC_Subcluster"],
 ["RNA_Download_Data",
 "RNA_Convert_ID_To_Name"],
 ["ATAC_Merge_Peaks",
@@ -546,8 +538,6 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Extract_Tags_Prep"],
 ["DropSeq_Extract_Barcode",
 "DropSeq_Make_Index"],
-["SCATAC_Pre_Get_Windows",
-"SCATAC_Pre_Make_Gene_Mat_Prep"],
 ["SCATAC_Extract_Tags",
 "SCATAC_Merge_Tags_Prep"],
 ["SCATAC_Pre_Cluster_Config",
@@ -562,22 +552,24 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Download_Data"],
 ["SCATAC_Pre_Remove_Doublets_Prep",
 "SCATAC_Pre_Remove_Doublets"],
+["SCATAC_Find_TFBS",
+"Compute_Ranks_SC_Subcluster_Prep"],
 ["SCATAC_Pre_Make_Peak_Mat_Prep",
 "SCATAC_Pre_Make_Peak_Mat"],
+["SCATAC_Pre_Get_Windows",
+"SCATAC_Pre_Get_Promoters"],
 ["SCATAC_Pre_Remove_Doublets",
 "SCATAC_Extract_Tags_Prep"],
-["SCATAC_Combine_Clusters",
-"SCATAC_Subcluster_Gene_Mat"],
-["SCATAC_Pre_Get_Genes",
-"SCATAC_Pre_Make_Gene_Mat_Prep"],
-["SCATAC_Pre_Make_Gene_Mat_Prep",
-"SCATAC_Pre_Make_Gene_Mat"],
+["SCATAC_Pre_Get_Promoters",
+"SCATAC_Subcluster_Gene_Acc"],
+["SCATAC_Pre_Make_Transcript_Mat",
+"SCATAC_Cluster_Transcript_Mat"],
 ["SCATAC_Find_TFBS_Prep",
 "SCATAC_Find_TFBS"],
 ["Compute_Ranks_SC_Cluster_Prep",
 "Compute_Ranks_SC_Cluster"],
-["ATAC_Align_Stat",
-"ATAC_QC_Align"],
+["SCATAC_Call_Peaks",
+"Compute_Ranks_SC_Subcluster_Prep"],
 ["SCATAC_Subcluster_Merge_Tags_Prep",
 "SCATAC_Subcluster_Merge_Tags"],
 ["ATAC_Remove_Duplicates",
@@ -600,8 +592,6 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Pre_Reduce_Dims"],
 ["SCATAC_QC",
 "SCATAC_Merged_Iterative_Cluster_Viz"],
-["SCATAC_Subcluster_Peak_Mat",
-"SCATAC_Compute_Peak_RAS"],
 ["SCATAC_Pre_Get_Windows",
 "SCATAC_Pre_Make_Peak_Mat_Prep"],
 ["SCATAC_Merged_Filter_Mat",
@@ -610,6 +600,8 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "RNA_Make_Index"],
 ["ATAC_Get_Fastq",
 "ATAC_Make_Index"],
+["SCATAC_Merge_Peaks",
+"SCATAC_Subcluster_Peak_Acc"],
 ["SCATAC_Merged_Cluster",
 "SCATAC_Extract_Sub_Matrix"],
 ["SCATAC_Subcluster_Merge_Tags",
@@ -620,6 +612,8 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "ATAC_Merge_Bed"],
 ["ATAC_Make_Index",
 "ATAC_Align_Prep"],
+["ATAC_Compute_Peak_Signal",
+"ATAC_QC"],
 ["SCATAC_Make_Index",
 "SCATAC_Align_Prep"],
 ["SCATAC_Filter_Bam",
@@ -632,10 +626,11 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "DropSeq_Extract_Barcode"],
 ["RNA_Make_Expr_Table",
 "Compute_Ranks_Prep"],
-["SCATAC_Merge_Peaks",
-"SCATAC_Compute_Peak_RAS"],
+["SCATAC_Subcluster_Peak_Mat",
+"SCATAC_Subcluster_Peak_Acc"],
 ["SCATAC_Pre_Make_Window_Mat",
 "SCATAC_Pre_Filter_Mat"],
+["ATAC_Compute_TE", "ATAC_QC"],
 ["SCATAC_Pre_Cluster",
 "SCATAC_Pre_Extract_Tags_Prep"],
 ["SCATAC_Download_Data",

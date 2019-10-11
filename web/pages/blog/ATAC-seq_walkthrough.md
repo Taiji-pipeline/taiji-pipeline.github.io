@@ -62,7 +62,7 @@ Use the following command to run the pipeline using five concurrent threads:
 taiji run --config config.yml -n 5 +RTS -N5
 ```
 
-`-n 5 +RTS -N5` tells the `taiji` to use 5 cores/threads.
+The arguments `-n 5 +RTS -N5` tell the `taiji` to use 5 cores/threads.
 
 OR
 
@@ -70,7 +70,7 @@ OR
 taiji run --config config.yml -n 5 --cloud
 ```
 
-if you are using job scheduling system.
+if you are using a job scheduling system like slurm or PBS.
 
 Taiji is able to pick up where you left off! To demonstrate this,
 after finishing a few steps, press `CTRL+C` to STOP the program and then re-run

@@ -17,17 +17,13 @@ main :: IO ()
 main = hakyll $ do
     match "web/templates/*" $ compile templateBodyCompiler
 
-    match "web/static/other/*" $ do
-        route $ gsubRoute "web/" (const "")
-        compile copyFileCompiler
-
-    match "web/static/img/*" $ do
-        route $ gsubRoute "web/" (const "")
-        compile copyFileCompiler
-
-    match "web/static/css/*.css" $ do
-        route $ gsubRoute "web/" (const "")
-        compile copyFileCompiler
+    match ( "web/static/other/*"
+        .||. "web/static/other/atac_demo/*"
+        .||. "web/static/img/*"
+        .||. "web/static/css/*.css"
+        .||. "web/static/js/*" )$ do
+            route $ gsubRoute "web/" (const "")
+            compile copyFileCompiler
 
     match "web/static/css/app.scss" $ do
         route $ composeRoutes (gsubRoute "web/" (const "")) $ setExtension "css"
@@ -35,10 +31,6 @@ main = hakyll $ do
 
     match "third_party/foundation-sites/dist/js/foundation.min.js" $ do
         route $ constRoute "static/js/foundation.min.js"
-        compile copyFileCompiler
-
-    match "web/static/js/*" $ do
-        route $ gsubRoute "web/" (const "")
         compile copyFileCompiler
 
     match "web/pages/*.md" $ do

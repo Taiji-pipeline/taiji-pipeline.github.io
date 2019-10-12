@@ -91,6 +91,8 @@ Results
 It will take several hours for the program to finish. Once it finishes, all results
 will be in the `output` directory, including BAM files, BED files, peaks, etc.
 
+![](static/other/atac_demo/files.png)
+
 Usually the first thing we want to look at is the quality of the data.
 The QC metrics can be visualized by the `qc.html` file in the
 `output/ATACSeq/QC` directory.
@@ -100,19 +102,21 @@ Here are some of the QC metrics:
 Alignment statistics
 --------------------
 
-![alignment](static/other/atac_demo/fig1.png)
+![](static/other/atac_demo/fig1.png){ width=900px }
 
 
 TSS enrichment
 --------------
 
-![alignment](static/other/atac_demo/fig2.png)
+![](static/other/atac_demo/fig2.png){ width=350px }
 
 Correlation between samples
 ---------------------------
 
-![alignment](static/other/atac_demo/fig3.png)
+![](static/other/atac_demo/fig3.png){ width=500px }
 
 Taiji combines motif scanning, network inference and the PageRank algorithm to rank TFs.
 This result will be saved in the `GeneRank.tsv` file. There is also a 
 `GeneRank.html` file that you can visualize.
+
+![](static/other/atac_demo/fig4.png)

@@ -1,26 +1,19 @@
 Installation instruction for command line interface
 ===================================================
 
-The pre-built binary for Linux system can be downloaded
-from [github](https://github.com/Taiji-pipeline/Taiji/releases)
-(For other platforms, you will need to build the program from the source following these [instructions](https://taiji-pipeline.github.io/documentation/install.html).)
-The binary depends on several external libraries. Most of them should have
-already been installed in standard Linux environment, except for igraph C library
+Installing Taiji is as simple as downloading the binary file from
+[github](https://github.com/Taiji-pipeline/Taiji/releases).
+
+The binary works for most Linux systems.
+If the binary does not work for you, you can build the program from the source
+following these [instructions](https://taiji-pipeline.github.io/documentation/install.html).)
+
+The binary depends on several external libraries. But most of them should have
+already been included in the standard Linux environment, except for igraph C library
 which can be downloaded and installed from [here](http://igraph.org/c/#downloads).
 
-After downloading the binary, put it in your system's PATH. To verify that the
+After installing the program, put it in your system's PATH. To verify that the
 installation is successful, type ``taiji --help`` in your command line.
-
-Dependent software
-------------------
-
-Taiji may use other software depending on the input data type: 
-
-- [samtools](https://github.com/samtools/samtools/releases): Filtering bam files.
-- [BWA](https://github.com/lh3/bwa/releases): Reads alignment.
-- [MACS2](https://pypi.org/project/MACS2/): Peak calling.
-- [STAR](https://github.com/alexdobin/STAR/releases): RNA-seq reads alignment.
-- [RSEM](https://github.com/deweylab/RSEM/releases): RNA-seq quantification.
 
 <!-- 
 Installation instruction for graphical user interface

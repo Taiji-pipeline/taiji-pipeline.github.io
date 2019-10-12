@@ -2,17 +2,21 @@
 title: ATAC-seq walk-through
 ---
 
-This tutorial requires following additional software:
+In this tutorial, we will re-analyze the ATAC-seq data published in
+[*Yu, 2017*](https://www.nature.com/articles/ni.3706).
+
+The analysis requires following additional software:
 
 * fastq-dump
 * samtools
 * MACS2
 * bwa
+* bedGraphToBigWig
 
 Preparing input
 ===============
 
-We will get the example dataset from ENCODE.
+We will use the SRA ID as the input and Taiji will download the data for us.
 To do this, add the following lines to the "input.tsv" file:
 
 ```
@@ -20,7 +24,11 @@ type	id	group	rep	path	format
 ATAC-seq	TN	TN	1	SRR5305074	SRA
 ATAC-seq	TN	TN	2	SRR5305075	SRA
 ATAC-seq	TE	TE	1	SRR5305076	SRA
+ATAC-seq	TE	TE	2	SRR5305077	SRA
+ATAC-seq	MP	MP	1	SRR5305078	SRA
+ATAC-seq	MP	MP	2	SRR5305079	SRA
 ATAC-seq	memory	memory	1	SRR5305080	SRA
+ATAC-seq	memory	memory	2	SRR5305081	SRA
 ```
 
 Please note that the columns are TAB-separated.
@@ -80,3 +88,31 @@ You shall see the program continues from the last checkpoint.
 Results
 =======
 
+It will take several hours for the program to finish. Once it finishes, all results
+will be in the `output` directory, including BAM files, BED files, peaks, etc.
+
+Usually the first thing we want to look at is the quality of the data.
+The QC metrics can be visualized by the `qc.html` file in the
+`output/ATACSeq/QC` directory.
+
+Here are some of the QC metrics:
+
+Alignment statistics
+--------------------
+
+![alignment](static/other/atac_demo/fig1.png)
+
+
+TSS enrichment
+--------------
+
+![alignment](static/other/atac_demo/fig2.png)
+
+Correlation between samples
+---------------------------
+
+![alignment](static/other/atac_demo/fig3.png)
+
+Taiji combines motif scanning, network inference and the PageRank algorithm to rank TFs.
+This result will be saved in the `GeneRank.tsv` file. There is also a 
+`GeneRank.html` file that you can visualize.

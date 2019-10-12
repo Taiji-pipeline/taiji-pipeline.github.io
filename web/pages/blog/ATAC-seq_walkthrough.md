@@ -99,7 +99,7 @@ The QC metrics can be visualized by the `qc.html` file in the
 
 Here are some of the QC metrics:
 
-![](static/other/atac_demo/fig1.png)
+![](static/other/atac_demo/fig1.png){ width=750px }
 
 Taiji combines motif scanning, network inference and the PageRank algorithm to rank TFs.
 This result will be saved in the `GeneRank.tsv` file. There is also a 

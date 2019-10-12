@@ -99,24 +99,12 @@ The QC metrics can be visualized by the `qc.html` file in the
 
 Here are some of the QC metrics:
 
-Alignment statistics
---------------------
-
-![](static/other/atac_demo/fig1.png){ width=900px }
-
-
-TSS enrichment
---------------
-
-![](static/other/atac_demo/fig2.png){ width=350px }
-
-Correlation between samples
----------------------------
-
-![](static/other/atac_demo/fig3.png){ width=500px }
+![](static/other/atac_demo/fig1.png)
 
 Taiji combines motif scanning, network inference and the PageRank algorithm to rank TFs.
 This result will be saved in the `GeneRank.tsv` file. There is also a 
 `GeneRank.html` file that you can visualize.
 
-![](static/other/atac_demo/fig4.png)
+![](static/other/atac_demo/fig2.png)
+
+The figure above shows different T cell population has its own unique transcriptional profile.

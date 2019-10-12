@@ -13,6 +13,14 @@ The analysis requires following additional software:
 * bwa
 * bedGraphToBigWig
 
+**All you need to do in this tutorial is preparing two files (`input.tsv` and `config.yml`) and typing a single command. Taiji will do the rest for you.**
+
+If you are wondering what Taiji does under the hood, type `taiji view taiji.html`
+to generate an overview of the pipeline. You can then use your favorite
+web browser to open the HTML file.
+
+Now let's start the tutorial!
+
 Preparing input
 ===============
 
@@ -64,21 +72,22 @@ assembly: "mm10"
 Running the ATAC-seq analysis
 =============================
 
-Use the following command to run the pipeline using five concurrent threads:
+Use the following command to run the pipeline using ten concurrent threads:
 
 ```
-taiji run --config config.yml -n 5 +RTS -N5
+taiji run --config config.yml -n 10 +RTS -N10
 ```
 
-The arguments `-n 5 +RTS -N5` tell the `taiji` to use 5 cores/threads.
+The arguments `-n 10 +RTS -N10` tell the `taiji` to use 10 cores/threads.
 
 OR
 
 ```
-taiji run --config config.yml -n 5 --cloud
+taiji run --config config.yml -n 10 --cloud
 ```
 
 if you are using a job scheduling system like slurm or PBS.
+(Click [here](https://taiji-pipeline.github.io/documentation/advance.html#parallelism-and-distributed-computing) to learn more about distributed computing)
 
 Taiji is able to pick up where you left off! To demonstrate this,
 after finishing a few steps, press `CTRL+C` to STOP the program and then re-run

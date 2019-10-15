@@ -121,8 +121,8 @@ We can zoom in to see the list of TFs that show high ranking scores in naive CD8
 
 ![](static/other/atac_demo/fig3.png)
 
-TCF is an important gene for naive population.
-As an example, we plotted the gene TCF and its regulatees.
-It clearly shows that TCF regulates much more genes in naive population.
+TCF7 is an important gene for the naive population.
+As an example, we plotted the gene TCF7 and its regulatees in TN and TE populations.
+It clearly shows that TCF7 regulates much more genes in the naive population.
 
-![TCF in TN(Left) and TE(Right)](static/other/atac_demo/fig4.png)
+![TCF7 in TN(Left) and TE(Right)](static/other/atac_demo/fig4.png)

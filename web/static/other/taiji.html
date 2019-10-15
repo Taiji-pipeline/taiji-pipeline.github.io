@@ -41,7 +41,7 @@ jmId_0 = new dagreD3.graphlib.
 Graph().
 setGraph({});
 var jmId_1;
-jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default parameters are: bwa mem -M -k 32."
+jmId_1 = { 'ATAC_Align': { 'description': "Align reads using BWA: bwa mem -M -k 32."
                          },
            'ATAC_Align_Prep': { 'description': ""
                               },
@@ -49,7 +49,7 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                               },
            'ATAC_Bam_To_Bed': { 'description': "Convert Bam file to Bed file."
                               },
-           'ATAC_Call_Peak': { 'description': ""
+           'ATAC_Call_Peak': { 'description': "Call peaks using MACS2."
                              },
            'ATAC_Call_Peak_Prep': { 'description': ""
                                   },
@@ -57,7 +57,7 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                                        },
            'ATAC_Compute_Peak_Signal_Prep': { 'description': ""
                                             },
-           'ATAC_Compute_TE': { 'description': ""
+           'ATAC_Compute_TE': { 'description': "Compute TSS enrichment."
                               },
            'ATAC_Compute_TE_Prep': { 'description': ""
                                    },
@@ -67,17 +67,17 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                               },
            'ATAC_Find_TFBS_Prep': { 'description': ""
                                   },
-           'ATAC_Find_TFBS_Union': { 'description': "Identify TF binding sites in open chromatin regions using the FIMO's motif scanning algorithm. Use 1e-5 as the default p-value cutoff."
+           'ATAC_Find_TFBS_Union': { 'description': "Identify TF binding sites in open chromatin regions using the FIMO's motif scanning algorithm. Use 5e-5 as the default p-value cutoff."
                                    },
            'ATAC_Fragment_Size_Distr': { 'description': ""
                                        },
-           'ATAC_Gene_Count': { 'description': ""
+           'ATAC_Gene_Count': { 'description': "Estimate gene expression using promoter accessibility."
                               },
-           'ATAC_Get_Bam': { 'description': ""
+           'ATAC_Get_Bam': { 'description': "Extract Bam files."
                            },
-           'ATAC_Get_Bed': { 'description': ""
+           'ATAC_Get_Bed': { 'description': "Extract Bed files."
                            },
-           'ATAC_Get_Fastq': { 'description': ""
+           'ATAC_Get_Fastq': { 'description': "Extract Fastq files."
                              },
            'ATAC_Get_Peak': { 'description': ""
                             },
@@ -85,11 +85,13 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                             },
            'ATAC_Get_TFBS_Prep': { 'description': ""
                                  },
+           'ATAC_Make_BigWig': { 'description': "Generate Bigwig files."
+                               },
            'ATAC_Make_Expr_Table': { 'description': ""
                                    },
            'ATAC_Make_Index': { 'description': "Generate the BWA index."
                               },
-           'ATAC_Merge_Bed': { 'description': ""
+           'ATAC_Merge_Bed': { 'description': "Merge Bed files from different replicates"
                              },
            'ATAC_Merge_Peaks': { 'description': "Merge peaks called from different samples together to form a non-overlapping set of open chromatin regions."
                                },
@@ -97,7 +99,7 @@ jmId_1 = { 'ATAC_Align': { 'description': "Read alignment using BWA. The default
                       },
            'ATAC_Read_Input': { 'description': "Read ATAC-seq data information from input file."
                               },
-           'ATAC_Remove_Duplicates': { 'description': "Remove duplicated reads using picard."
+           'ATAC_Remove_Duplicates': { 'description': "Remove PCR duplicates."
                                      },
            'Compute_Ranks': { 'description': "Perform personalized Pagerank."
                             },
@@ -315,6 +317,8 @@ jmId_2 = [["SCATAC_Pre_Make_Peak_Mat",
 "SCATAC_Subcluster_Diff_Peak"],
 ["SCATAC_Cluster_Peak_Acc",
 "SCATAC_Cluster_Diff_Peak"],
+["ATAC_Merge_Bed",
+"ATAC_Make_BigWig"],
 ["SCATAC_Merged_Cluster",
 "SCATAC_Cluster_Peak_Mat"],
 ["ATAC_Bam_To_Bed",

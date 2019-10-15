@@ -2,6 +2,19 @@
 title: "ATAC+RNA: Mouse blood formation"
 ---
 
+In this tutorial, we will perform an integrated analysis of ATAC-seq and RNA-seq
+data published in [*Lara-Astiaso, 2014*](https://science.sciencemag.org/content/345/6199/943).
+
+The analysis requires following additional software:
+
+* fastq-dump
+* samtools
+* MACS2
+* bwa
+* STAR
+* RSEM
+* bedGraphToBigWig
+
 Preparing input
 ===============
 
@@ -37,4 +50,42 @@ config.yml:
 input: "input.tsv"
 output_dir: "output/"
 assembly: "mm10"
+```
+
+Running the analysis
+====================
+
+This is a large dataset and it will take a long time if we run it on a desktop.
+Nowadays large-scale computing usually happens in the cloud.
+So in this tutorial I will show you how to use Taiji in a HPC cluster.
+
+First you need to have an access to a HPC cluster that supports slurm or PBS like
+workload manager. Now, put following lines in your `config.yml` file:
+
+```
+submit_params: "-q home -l walltime=10:00:00"
+submit_command: "qsub"
+submit_cpu_format: "-l nodes=1:ppn=%d"
+submit_memory_format: "-l mem=%dG
+```
+
+This configuration works for The Triton Shared Computing Cluster (TSCC) at UCSD.
+You may need to make adjustment for your local environment.
+
+The submission parameters of individual step are configurable as well:
+
+```
+resource:
+  RNA_Align
+    parameter: "-q home -l walltime=24:00:00"
+    memory: 50
+
+  ATAC_Align:
+    memory: 10
+```
+
+Once you have your `config.yml` file ready, run the analysis using:
+
+```
+taiji run --config config.yml --cloud
 ```

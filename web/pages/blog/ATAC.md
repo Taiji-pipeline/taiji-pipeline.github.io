@@ -119,10 +119,10 @@ This result will be saved in the `GeneRank.tsv` file. There is also a
 The figure above shows different T cell population has its own unique transcriptional profile.
 We can zoom in to see the list of TFs that show high ranking scores in naive CD8 T cells.
 
-![TN](static/other/atac_demo/fig3.png)
+![](static/other/atac_demo/fig3.png)
 
 TCF is an important gene for naive population.
 As an example, we plotted the gene TCF and its regulatees.
 It clearly shows that TCF regulates much more genes in naive population.
 
-![TE](static/other/atac_demo/fig4.png)
+![TCF in TN(Left) and TE(Right)](static/other/atac_demo/fig4.png)

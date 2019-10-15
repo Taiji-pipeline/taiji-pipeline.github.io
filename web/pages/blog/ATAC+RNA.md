@@ -1,5 +1,5 @@
 ---
-title: ATAC+RNA: Mouse blood formation
+title: "ATAC+RNA: Mouse blood formation"
 ---
 
 Preparing input

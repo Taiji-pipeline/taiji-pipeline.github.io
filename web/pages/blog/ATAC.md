@@ -1,5 +1,5 @@
 ---
-title: ATAC: CD8 T cell development
+title: "ATAC: CD8 T cell development"
 ---
 
 In this tutorial, we will re-analyze the ATAC-seq data published in

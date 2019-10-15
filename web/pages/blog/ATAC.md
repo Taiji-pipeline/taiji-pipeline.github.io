@@ -1,5 +1,5 @@
 ---
-title: ATAC-seq walk-through
+title: ATAC: CD8 T cell development
 ---
 
 In this tutorial, we will re-analyze the ATAC-seq data published in
@@ -117,7 +117,12 @@ This result will be saved in the `GeneRank.tsv` file. There is also a
 ![](static/other/atac_demo/fig2.png)
 
 The figure above shows different T cell population has its own unique transcriptional profile.
+We can zoom in to see the list of TFs that show high ranking scores in naive CD8 T cells.
 
-![](static/other/atac_demo/fig3.png)
+![TN](static/other/atac_demo/fig3.png)
 
-![](static/other/atac_demo/fig4.png)
+TCF is an important gene for naive population.
+As an example, we plotted the gene TCF and its regulatees.
+It clearly shows that TCF regulates much more genes in naive population.
+
+![TE](static/other/atac_demo/fig4.png)

@@ -19,6 +19,7 @@ main = hakyll $ do
 
     match ( "web/static/other/*"
         .||. "web/static/other/atac_demo/*"
+        .||. "web/static/other/atac_rna_demo/*"
         .||. "web/static/img/*"
         .||. "web/static/css/*.css"
         .||. "web/static/js/*" )$ do

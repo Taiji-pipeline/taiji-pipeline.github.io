@@ -56,13 +56,19 @@ construct regulatory network and identify candidate driver genes.
 </section>
 
 <section>
+
 <p>The design philosophy of the Taiji pipeline is focused on:</p>
 <ul>
-  <li>Correctness.</li>
-  <li>Performance.</li>
-  <li>Convinence.</li>
+  <li>Correctness: We only include reliable algorithms and
+    make every effort to ensure the implementations are bug-free.</li>
+  <li>Performance: We code algorithms from scratch when necessary to
+    ensure the pipeline can scale to large datasets (thousands of samples at least).</li>
+  <li>Convinence: Most analyses have multipe entry points, e.g., Fastq, Bam or Bed.
+    The execution of the pipeline requires only a single command.</li>
 </ul>
+<p>We achieve these at the expense of customization. This will be improved in the future.</p>
 </section>
+
 
 <section>
     <div class="grid-y" style="height: 270px;">

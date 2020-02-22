@@ -1,16 +1,12 @@
 Installation instruction for command line interface
 ===================================================
 
-Installing Taiji is as simple as downloading the binary file from
+Installing Taiji is as easy as downloading the binary file from
 [github](https://github.com/Taiji-pipeline/Taiji/releases).
 
 The binary works for most Linux systems.
 If the binary does not work for you, you can build the program from the source
 following these [instructions](https://taiji-pipeline.github.io/documentation/install.html).)
-
-The binary depends on several external libraries. But most of them should have
-already been included in the standard Linux environment, except for igraph C library
-which can be downloaded and installed from [here](http://igraph.org/c/#downloads).
 
 After installing the program, put it in your system's PATH. To verify that the
 installation is successful, type ``taiji --help`` in your command line.

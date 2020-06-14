@@ -22,7 +22,9 @@ main = hakyll $ do
         .||. "web/static/other/atac_rna_demo/*"
         .||. "web/static/img/*"
         .||. "web/static/css/*.css"
-        .||. "web/static/js/*" )$ do
+        .||. "web/static/js/*" 
+        .||. "_diagrams/*" 
+        )$ do
             route $ gsubRoute "web/" (const "")
             compile copyFileCompiler
 
@@ -41,21 +43,6 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "web/templates/default.html" siteCtx
             >>= relativizeUrls
 
-    match "web/pages/algorithm/*.md" $ do
-        route $ composeRoutes (gsubRoute "web/pages/algorithm/" $ const "algorithm_") $
-            setExtension "html"
-        compile $ do
-            doc <- markdownCompiler
-            let ctx = field "id" (return . getName . itemBody) <>
-                    boolField "active" ((==itemIdentifier doc) . fst . itemBody) <>
-                    field "title" (return . fromMaybe "Untitled" . lookupString "title" . snd . itemBody)
-                getName (x,_) = T.unpack $ T.init $ fst $ T.breakOnEnd "." $ snd $
-                    T.breakOnEnd "/" $ T.pack $ toFilePath x
-            loadAndApplyTemplate "web/templates/default.html" 
-                (listField "posts" ctx
-                    (mapM makeItem =<< getAllMetadata "web/pages/algorithm/*.md")
-                        <> blogCtx <> siteCtx) doc >>= relativizeUrls
-
     match "web/pages/blog/*.md" $ do
         route $ composeRoutes (gsubRoute "web/pages/blog/" $ const "blog_") $
             setExtension "html"
@@ -69,6 +56,21 @@ main = hakyll $ do
             loadAndApplyTemplate "web/templates/default.html" 
                 (listField "posts" ctx
                     (mapM makeItem =<< getAllMetadata "web/pages/blog/*.md")
+                        <> blogCtx <> siteCtx) doc >>= relativizeUrls
+
+    match "web/pages/algorithm/*.md" $ do
+        route $ composeRoutes (gsubRoute "web/pages/algorithm/" $ const "algorithm_") $
+            setExtension "html"
+        compile $ do
+            doc <- markdownCompiler
+            let ctx = field "id" (return . getName . itemBody) <>
+                    boolField "active" ((==itemIdentifier doc) . fst . itemBody) <>
+                    field "title" (return . fromMaybe "Untitled" . lookupString "title" . snd . itemBody)
+                getName (x,_) = T.unpack $ T.init $ fst $ T.breakOnEnd "." $ snd $
+                    T.breakOnEnd "/" $ T.pack $ toFilePath x
+            loadAndApplyTemplate "web/templates/default.html" 
+                (listField "posts" ctx
+                    (mapM makeItem =<< getAllMetadata "web/pages/algorithm/*.md")
                         <> blogCtx <> siteCtx) doc >>= relativizeUrls
 
     match "web/pages/*.html" $ do

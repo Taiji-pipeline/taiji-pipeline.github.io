@@ -13,13 +13,13 @@ blogCtx :: Context String
 blogCtx = boolField "sidebar" (const True)
 
 markdownCompiler :: Compiler (Item String)
-markdownCompiler = pandocCompilerWithTransform defaultHakyllReaderOptions
-    defaultHakyllWriterOptions (walk f)
+markdownCompiler = pandocCompilerWithTransformM defaultHakyllReaderOptions
+    defaultHakyllWriterOptions (unsafeCompiler . walkM f)
   where
-    f blks = concatMap (insertDiagrams opt) blks
+    f blks = concat <$> mapM (insertDiagrams opt) blks
     opt = Opts {
         _outFormat = "png",
-        _outDir    = "diagram",
+        _outDir    = "_diagrams",
         _expression = "example", 
         _absolutePath = False,
         _backend = Cairo

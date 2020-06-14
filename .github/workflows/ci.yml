@@ -23,7 +23,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install dependency
-        run: sudo apt-get install haskell-stack
+        run: sudo apt-get install haskell-stack libcairo2-dev libpango1.0-dev
 
       - name: Build
         run: |

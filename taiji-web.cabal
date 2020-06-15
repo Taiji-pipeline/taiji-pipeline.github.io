@@ -13,6 +13,7 @@ executable taiji-web
   build-depends:    base == 4.*
                   , hakyll == 4.*
                   , hakyll-sass
+                  , pandoc
                   , pandoc-types
                   , diagrams-pandoc
                   , text

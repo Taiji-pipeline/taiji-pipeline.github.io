@@ -31,6 +31,7 @@ jobs:
         run: |
           stack build
           stack exec taiji-web build
+          stack exec taiji-web build
           touch _site/.nojekyll
 
       - name: Deploy

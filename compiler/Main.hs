@@ -23,10 +23,13 @@ main = hakyll $ do
         .||. "web/static/img/*"
         .||. "web/static/css/*.css"
         .||. "web/static/js/*" 
-        .||. "_diagrams/*" 
         )$ do
             route $ gsubRoute "web/" (const "")
             compile copyFileCompiler
+
+    match  "_diagrams/*" $ do
+        route idRoute
+        compile copyFileCompiler
 
     match "web/static/css/app.scss" $ do
         route $ composeRoutes (gsubRoute "web/" (const "")) $ setExtension "css"

@@ -18,7 +18,8 @@ scATAC-seq	forebrain_E11.5	forebrain_E11.5	1	ENCFF951ZRW,ENCFF197HRD	ENCODE,Demu
 scATAC-seq	forebrain_P0	forebrain_P0	1	ENCFF501RJM,ENCFF595BQU	ENCODE,Demultiplexed
 ```
 
-This input file tells the Taiji to download data from the ENCODE portal and perform joint analysis of these two samples.
+The input file is tab-delimited.
+It tells the Taiji to download data from the ENCODE portal and perform joint analysis of these two samples.
 Remove the "ENCODE" tag if your files are in a local path, for example:
 
 ```
@@ -49,6 +50,8 @@ bwa_index: "path-to-BWAIndex/genome.fa"
 genome: "path-to-genome-fasta/genome.fa"
 ```
 
+Please modify the path of `bwa_index` and `genome`.
+
 Launch the preprocessing pipeline
 =================================
 
@@ -59,5 +62,5 @@ Use the command below to execute the preprocessing pipeline:
 taiji run --config config.yml --select SCATAC_Remove_Duplicates
 ```
 
-A fragment file is finally generated for each FASTQ input.
+A fragment file will be generated for each FASTQ input in the output directory.
 For the format of the fragment file, see here: https://support.10xgenomics.com/single-cell-atac/software/pipelines/latest/output/fragments.

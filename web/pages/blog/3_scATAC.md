@@ -27,6 +27,16 @@ scATAC-seq	forebrain_E11.5	forebrain_E11.5	1	e11.5_R1.fastq.gz,e11.5_R2.fastq.gz
 scATAC-seq	forebrain_P0	forebrain_P0	1	p0_R1.fastq.gz,p0_R2.fastq.gz	Demultiplexed
 ```
 
+The FASTQ input should be demultiplexed by adding the barcode to the beginning of each read in the following format: "@" + "barcode" + ":" + "read_name". Below is one example of demultiplexed fastq file:
+
+```
+$ zcat CEMBA180306_2B.demultiplexed.R1.fastq.gz | head 
+@AGACGGAGACGAATCTAGGCTGGTTGCCTTAC:7001113:920:HJ55CBCX2:1:1108:1121:1892 1:N:0:0
+ATCCTGGCATGAAAGGATTTTTTTTTTAGAAAATGAAATATATTTTAAAG
++
+DDDDDIIIIHIIGHHHIIIHIIIIIIHHIIIIIIIIIIIIIIIIIIIIII
+```
+
 Configuration
 =============
 

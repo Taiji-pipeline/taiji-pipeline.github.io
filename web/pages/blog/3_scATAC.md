@@ -2,15 +2,38 @@
 title: "scATAC: Mouse forebrain"
 ---
 
-The analysis requires following additional software:
+(Require version v1.3 or above)
+
+The analysis may need following additional software:
 
 * samtools >= v1.9.
-* BWA >= v0.7.17
+* BWA >= v0.7.17.
+* taiji-utils: install using `pip install taiji-utils`.
 
 Preparing input
 ===============
 
-Open a new file named `input.tsv` and write down the following content:
+Create a new file named `input.tsv` and follow instructions below based on the type of input files.
+
+<ul class="tabs" data-responsive-accordion-tabs="tabs medium-accordion large-tabs" id="example-tabs">
+  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Fragment file</a></li>
+  <li class="tabs-title"><a href="#panel2">FASTQ</a></li>
+</ul>
+
+:::::: {.tabs-content data-tabs-content="example-tabs"}
+
+::: {#panel1 .tabs-panel .is-active}
+
+```
+type	id	rep	path	tags	format
+scATAC-seq	pbmc_10k	1	URL:https://cf.10xgenomics.com/samples/cell-atac/1.2.0/atac_pbmc_10k_nextgem/atac_pbmc_10k_nextgem_fragments.tsv.gz	PairedEnd,Gzip	Bed
+```
+
+In this example, we downloaded the fragment file from the 10x Genomics website.
+
+:::
+
+::: {#panel2 .tabs-panel}
 
 ```
 type	id	group	rep	path	tags
@@ -38,6 +61,10 @@ ATCCTGGCATGAAAGGATTTTTTTTTTAGAAAATGAAATATATTTTAAAG
 DDDDDIIIIHIIGHHHIIIHIIIIIIHHIIIIIIIIIIIIIIIIIIIIII
 ```
 
+:::
+
+::::::
+
 Configuration
 =============
 
@@ -51,6 +78,14 @@ genome: "path-to-genome-fasta/genome.fa"
 ```
 
 Please modify the path of `bwa_index` and `genome`.
+If you don't have genome fasta file or BWA index on your computer, you can tell
+Taiji to automatically download that for you by specifying the genome assembly:
+
+```
+input: "input.tsv"
+output_dir: "output/"
+assembly: "mm10"
+```
 
 Launch the preprocessing pipeline
 =================================
@@ -64,3 +99,22 @@ taiji run --config config.yml --select SCATAC_Remove_Duplicates
 
 A fragment file will be generated for each FASTQ input in the output directory.
 For the format of the fragment file, see here: https://support.10xgenomics.com/single-cell-atac/software/pipelines/latest/output/fragments.
+
+Quality control
+===============
+
+```
+taiji run --config config.yml --select SCATAC_QC
+```
+
+Joint clustering analysis
+=========================
+
+```
+taiji run --config config.yml --select SCATAC_Merged_Cluster
+```
+
+More analyses
+=============
+
+Use `taiji view taiji.html` to see what are availiable!

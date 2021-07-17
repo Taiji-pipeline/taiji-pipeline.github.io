@@ -2,7 +2,7 @@ name:               taiji-web
 version:            0.1.0
 author:             Kai Zhang
 maintainer:         kai@kzhang.org
-copyright:          (c) 2018-2020 Kai Zhang
+copyright:          (c) 2018-2021 Kai Zhang
 build-type:         Simple
 cabal-version:      >= 1.10
 
